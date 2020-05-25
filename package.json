@@ -1,0 +1,9 @@
+{
+  "name": "jsimoni42.github.io",
+  "version": "1.0.0",
+  "description": "github pages",
+  "main": "index.js",
+  "repository": "https://github.com/JSimoni42/jsimoni42.github.io.git",
+  "author": "John Simoni <johnsimoni@curalate.com>",
+  "license": "MIT"
+}
