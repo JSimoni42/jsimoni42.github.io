@@ -5,11 +5,8 @@
     "sourceMap": true,
     "jsx": "react",
     "allowSyntheticDefaultImports": true,
+    "target": "ES2015"
   },
-  "include": [
-    "index.tsx",
-  ],
-  "exclude": [
-    "**/node_modules"
-  ]
+  "include": ["index.tsx"],
+  "exclude": ["**/node_modules"]
 }

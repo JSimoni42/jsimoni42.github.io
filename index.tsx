@@ -1,12 +1,8 @@
-import ReactDom from 'react-dom';
-import React from 'react';
+import ReactDom from "react-dom";
+import React from "react";
+import { App } from "./src/App";
 
-const appRoot = window.document.createElement('div');
+const appRoot = window.document.createElement("div");
 document.body.appendChild(appRoot);
 
-ReactDom.render(
-  <div>
-    Wenis
-  </div>,
-  appRoot,
-);
+ReactDom.render(<App />, appRoot);
