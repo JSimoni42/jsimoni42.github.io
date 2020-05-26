@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "ES2015",
+    "strict": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": [
+    "index.tsx",
+  ],
+  "exclude": [
+    "**/node_modules"
+  ]
+}

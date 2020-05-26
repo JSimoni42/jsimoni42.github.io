@@ -2,8 +2,24 @@
   "name": "jsimoni42.github.io",
   "version": "1.0.0",
   "description": "github pages",
-  "main": "index.js",
+  "main": "index.ts",
   "repository": "https://github.com/JSimoni42/jsimoni42.github.io.git",
   "author": "John Simoni <johnsimoni@curalate.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "build": "webpack --config webpack.config.js",
+    "build:watch": "webpack-dev-server --config webpack.config.js"
+  },
+  "dependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@types/react-dom": "^16.9.8",
+    "clean-webpack-plugin": "^3.0.0",
+    "ts-loader": "^7.0.5",
+    "typescript": "^3.9.3",
+    "webpack": "^4.43.0",
+    "webpack-dev-server": "^3.11.0"
+  }
 }
