@@ -7,15 +7,22 @@
 
 import React, { FC } from "react"
 import { siteMetadata } from "../constants/siteConstants"
-
 import Header from "./header"
 import "./layout.css"
+import { Sidebar } from "./nav-sidebar/sidebar"
 
 interface ComponentWithChildren {
   children: JSX.Element[];
 }
 
 const Layout: FC<ComponentWithChildren> = ({ children }) => {
+  const sidebarElements = [
+    {
+      title: 'Wenis',
+      elementId: 'wenis'
+    }
+  ]
+
   return (
     <>
       <Header siteTitle={siteMetadata.title} />
@@ -26,7 +33,10 @@ const Layout: FC<ComponentWithChildren> = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <main>{children}</main>
+          <Sidebar elements={ sidebarElements } />
+        </div>
         <footer>
           © {new Date().getFullYear()}, Built with
           {` `}
