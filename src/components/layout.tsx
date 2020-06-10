@@ -12,7 +12,7 @@ import "./layout.css"
 import { Sidebar } from "./nav-sidebar/sidebar"
 
 interface ComponentWithChildren {
-  children: JSX.Element[];
+  children: JSX.Element[] | JSX.Element;
 }
 
 const Layout: FC<ComponentWithChildren> = ({ children }) => {

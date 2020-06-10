@@ -1,5 +1,6 @@
 import React, {FC, useState, useEffect} from "react";
 import { SidebarElement } from "./models";
+import { useOnIntersection } from "../../viewport-intersection/useOnIntersection";
 
 interface Props {
   elements: SidebarElement[];
@@ -22,20 +23,7 @@ export const Sidebar: FC<Props> = ({
     }
   };
 
-  const [ intersectionObserver, setObserver ] = useState(new IntersectionObserver(onIntersect));
-
-  useEffect(() => {
-    if (elements.length > 0)  {
-      elements.forEach((element) => {
-        const foundElement = document.getElementById(element.elementId);
-        if (foundElement) {
-          intersectionObserver.observe(foundElement);
-        }
-      });
-    }
-
-    return intersectionObserver.disconnect;
-  }, [ elements ]);
+  useOnIntersection(onIntersect);
 
   const navElements = elements.map((element, index) => {
     return (
