@@ -1,26 +1,33 @@
 import React, { FC } from "react"
 
-import Layout from "../components/layout"
-import Image from "../components/image"
-import SEO from "../components/seo"
-import { useObserveViewportIntersection } from "../viewport-intersection/useObserveViewportIntersection";
+import { PageFrame } from "../components/page-frame";
+import styled from "styled-components";
+import { PageWrapper } from "../components/page-wrapper";
 
 const IndexPage: FC = () => {
-  const ref = useObserveViewportIntersection<HTMLDivElement>();
-
   return (
-    <Layout>
-      <div ref={ ref }>
-        <SEO title="Home" />
-        <h1>Hi people</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <div id="wenis" style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-          <Image />
-        </div>
-      </div>
-    </Layout>
+    <PageWrapper>
+      <IndexContainer>
+        <ContentPage>
+          Neat! First page
+        </ContentPage>
+        <PageFrame>
+          Wow! Second page
+        </PageFrame>
+      </IndexContainer>
+    </PageWrapper>
   )
 };
+
+const ContentPage = styled(PageFrame)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const IndexContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 export default IndexPage
