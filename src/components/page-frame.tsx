@@ -1,13 +1,15 @@
-import React, { FC, HtmlHTMLAttributes } from 'react';
+import React, { HTMLAttributes, forwardRef } from 'react';
 import styled from 'styled-components';
 
-export const PageFrame: FC<HtmlHTMLAttributes<HTMLDivElement>> = ({ children, className }) => {
+type Props = HTMLAttributes<HTMLDivElement>;
+
+export const PageFrame = forwardRef<HTMLDivElement, Props>(({ children, className }, ref) => {
   return (
-    <FrameContainer className={ className ?? '' }>
+    <FrameContainer className={ className ?? '' } ref={ ref }>
       { children }
     </FrameContainer>
   );
-};
+});
 
 const FrameContainer = styled.div`
   width: 100%;

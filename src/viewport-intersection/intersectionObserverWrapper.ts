@@ -3,7 +3,12 @@ class IntersectionObserverWrapper {
   private listeners: IntersectionObserverCallback[];
 
   constructor() {
-    this.intersectionObserver = new IntersectionObserver(this.observerCallback.bind(this));
+    this.intersectionObserver = new IntersectionObserver(
+      this.observerCallback.bind(this),
+      {
+        threshold: 0.1,
+      }
+    );
     this.listeners = [];
   }
 

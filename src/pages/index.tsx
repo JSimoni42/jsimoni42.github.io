@@ -3,21 +3,59 @@ import React, { FC } from "react"
 import { PageFrame } from "../components/page-frame";
 import styled from "styled-components";
 import { PageWrapper } from "../components/page-wrapper";
+import { useObserveViewportIntersection } from "../viewport-intersection/useObserveViewportIntersection";
+import { useOnIntersection } from "../viewport-intersection/useOnIntersection";
+import Img from "gatsby-image"
+import { useStaticQuery, graphql } from "gatsby";
 
 const IndexPage: FC = () => {
+  const secondPageIntersectionRef = useObserveViewportIntersection<HTMLDivElement>();
+
+  useOnIntersection(([ entry ]) => {
+    if (entry.isIntersecting) {
+      console.log(entry);
+    }
+  });
+
+  const data = useStaticQuery(graphql`
+    query {
+      placeholderImage: file(relativePath: { eq: "take-1.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 300) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <PageWrapper>
       <IndexContainer>
         <ContentPage>
-          Neat! First page
+          <SplashImage fluid={ data.placeholderImage.childImageSharp.fluid } />
         </ContentPage>
-        <PageFrame>
+        <ContentPage ref={ secondPageIntersectionRef }>
           Wow! Second page
-        </PageFrame>
+        </ContentPage>
+        <ContentPage>
+          Golly, Gee! A third page!
+        </ContentPage>
       </IndexContainer>
     </PageWrapper>
   )
 };
+
+const SplashImage = styled(Img)`
+  width: 100%;
+  max-height: 100vh;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    margin-bottom: 0;
+  }
+`;
 
 const ContentPage = styled(PageFrame)`
   display: flex;
