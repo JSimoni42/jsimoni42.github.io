@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { PageWrapper } from "../components/page-wrapper";
 import { PageFrame } from "../components/page-frame";
 import { CursorRow } from "../components/CursorRow";

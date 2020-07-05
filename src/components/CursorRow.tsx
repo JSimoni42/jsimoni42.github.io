@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useState, useEffect } from "react";
+import React, { FC, HTMLAttributes, useState, useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -12,25 +12,30 @@ export const CursorRow: FC<Props> = ({
   className = '',
 }) => {
   const [ typedText, setTypedText ] = useState("");
-  const [ currentTypedIndex, setCurrentTypedIndex ] = useState(0);
-  const [ typingIntervalId, setTypingIntervalId ] = useState(-1);
+  const callback = useRef<() => void>();
 
   useEffect(() => {
-    if (startTyping && typedText === "") {
-      const intervalId = window.setInterval(() => {
-        setTypedText(typedText + text[currentTypedIndex]);
-        setCurrentTypedIndex(currentTypedIndex + 1);
-      }, 1000);
+    callback.current = (): void =>  {
+      if (text === typedText) {
+        return;
+      } else {
+        const currentIndex = typedText.length;
+        setTypedText(t => t + text[currentIndex]);
+      }
+    }
+  }, [ text, typedText ])
 
-      setTypingIntervalId(intervalId);
+  useEffect(() => {
+    if (startTyping) {
+      const tick = () => {
+        callback.current?.();
+      }
+
+      const intervalId = setInterval(tick, 200);
+
+      return () => clearInterval(intervalId);
     }
   }, [ startTyping ]);
-
-  useEffect(() => {
-    if (currentTypedIndex >= text.length) {
-      clearInterval(typingIntervalId);
-    }
-  }, [ currentTypedIndex ])
 
   return (
     <Row className={ className }>
@@ -43,6 +48,8 @@ export const CursorRow: FC<Props> = ({
 const Row = styled.div`
   height: 1em;
   color: white;
+
+  font-family: 'Roboto Mono', monospace;
 `;
 
 const Blinking = keyframes`
