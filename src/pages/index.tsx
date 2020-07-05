@@ -1,65 +1,46 @@
 import React, { FC } from "react"
 
-import { PageFrame } from "../components/page-frame";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { PageWrapper } from "../components/page-wrapper";
-import { useObserveViewportIntersection } from "../viewport-intersection/useObserveViewportIntersection";
-import { useOnIntersection } from "../viewport-intersection/useOnIntersection";
-import Img from "gatsby-image"
-import { useStaticQuery, graphql } from "gatsby";
+import { PageFrame } from "../components/page-frame";
 
 const IndexPage: FC = () => {
-  const secondPageIntersectionRef = useObserveViewportIntersection<HTMLDivElement>();
-
-  useOnIntersection(([ entry ]) => {
-    if (entry.isIntersecting) {
-      console.log(entry);
-    }
-  });
-
-  const data = useStaticQuery(graphql`
-    query {
-      placeholderImage: file(relativePath: { eq: "take-1.png" }) {
-        childImageSharp {
-          fluid(maxWidth: 300) {
-            ...GatsbyImageSharpFluid
-          }
-        }
-      }
-    }
-  `)
-
   return (
     <PageWrapper>
-      <IndexContainer>
-        <ContentPage>
-          <img src='https://d1onj8fhbqbvm7.cloudfront.net/IMG_20200613_181347.jpg' />
-        </ContentPage>
-        <ContentPage ref={ secondPageIntersectionRef }>
-          Wow! Second page
-        </ContentPage>
-        <ContentPage>
-          Golly, Gee! A third page!
-        </ContentPage>
-      </IndexContainer>
+      <TerminalScreenFrame>
+        <CursorRow />
+        <CursorRow>
+          <Cursor />
+        </CursorRow>
+      </TerminalScreenFrame>
     </PageWrapper>
   )
 };
 
-const SplashImage = styled(Img)`
-  width: 120%;
-  max-height: 100vh;
+const CursorRow = styled.div`
+  height: 1em;
 `;
 
-const ContentPage = styled(PageFrame)`
-  display: flex;
-  justify-content: center;
-  align-items: center;
+const Blinking = keyframes`
+  from {
+    background-color: white;
+  }
+
+  to {
+    background-color: black;
+  }
 `;
 
-const IndexContainer = styled.div`
-  display: flex;
-  flex-direction: column;
+const Cursor = styled.div`
+  display: inline-block;
+  background-color: white;
+  height: 1em;
+  width: 10px;
+  animation: ${Blinking} 1s linear infinite;
+`;
+
+const TerminalScreenFrame = styled(PageFrame)`
+  background-color: black;
 `;
 
 export default IndexPage

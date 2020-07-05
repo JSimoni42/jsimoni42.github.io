@@ -14,5 +14,5 @@ export const PageFrame = forwardRef<HTMLDivElement, Props>(({ children, classNam
 const FrameContainer = styled.div`
   width: 100%;
   height: 100vh;
-  border: thick black solid;
+  padding: 20px;
 `;
