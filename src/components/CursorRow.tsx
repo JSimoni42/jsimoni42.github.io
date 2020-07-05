@@ -4,12 +4,14 @@ import styled, { keyframes } from "styled-components";
 interface Props extends HTMLAttributes<HTMLDivElement> {
   text: string;
   startTyping: boolean;
+  delay?: number;
 }
 
 export const CursorRow: FC<Props> = ({
   text,
   startTyping,
   className = '',
+  delay = 100,
 }) => {
   const [ typedText, setTypedText ] = useState("");
   const callback = useRef<() => void>();
@@ -31,28 +33,24 @@ export const CursorRow: FC<Props> = ({
         callback.current?.();
       }
 
-      const intervalId = setInterval(tick, 100);
-
+      const intervalId = setInterval(tick, delay);
       return () => clearInterval(intervalId);
     }
   }, [ startTyping ]);
 
   return (
-    <Row className={ className }>
+    <div className={ className }>
       <TextContainer>
         { typedText }
       </TextContainer>
       <Cursor />
-    </Row>
+    </div>
   );
 };
 
 const TextContainer = styled.span`
-  color: white;
   font-family: 'Roboto Mono', monospace;
-`;
 
-const Row = styled.div`
   &::selection {
     background-color: white;
     color: black;
