@@ -31,7 +31,7 @@ export const CursorRow: FC<Props> = ({
         callback.current?.();
       }
 
-      const intervalId = setInterval(tick, 200);
+      const intervalId = setInterval(tick, 100);
 
       return () => clearInterval(intervalId);
     }
@@ -39,18 +39,20 @@ export const CursorRow: FC<Props> = ({
 
   return (
     <Row className={ className }>
-      { typedText }
+      <TextContainer>
+        { typedText }
+      </TextContainer>
       <Cursor />
     </Row>
   );
 };
 
-const Row = styled.div`
-  height: 30px;
+const TextContainer = styled.span`
   color: white;
-
   font-family: 'Roboto Mono', monospace;
+`;
 
+const Row = styled.div`
   &::selection {
     background-color: white;
     color: black;
@@ -70,7 +72,8 @@ const Blinking = keyframes`
 const Cursor = styled.div`
   display: inline-block;
   background-color: white;
-  height: 1em;
+  height: 23px;
   width: 10px;
   animation: ${Blinking} 1s linear infinite;
+  vertical-align: text-top;
 `;
