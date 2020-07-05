@@ -46,10 +46,15 @@ export const CursorRow: FC<Props> = ({
 };
 
 const Row = styled.div`
-  height: 1em;
+  height: 30px;
   color: white;
 
   font-family: 'Roboto Mono', monospace;
+
+  &::selection {
+    background-color: white;
+    color: black;
+  }
 `;
 
 const Blinking = keyframes`
