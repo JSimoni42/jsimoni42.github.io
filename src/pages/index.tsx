@@ -33,7 +33,7 @@ const IndexPage: FC = () => {
     <PageWrapper>
       <IndexContainer>
         <ContentPage>
-          <SplashImage fluid={ data.placeholderImage.childImageSharp.fluid } />
+          <img src='https://d1onj8fhbqbvm7.cloudfront.net/IMG_20200613_181347.jpg' />
         </ContentPage>
         <ContentPage ref={ secondPageIntersectionRef }>
           Wow! Second page
@@ -47,14 +47,8 @@ const IndexPage: FC = () => {
 };
 
 const SplashImage = styled(Img)`
-  width: 100%;
+  width: 120%;
   max-height: 100vh;
-
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    margin-bottom: 0;
-  }
 `;
 
 const ContentPage = styled(PageFrame)`
