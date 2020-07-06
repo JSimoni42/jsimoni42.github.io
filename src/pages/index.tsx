@@ -2,9 +2,9 @@ import React, { FC } from "react"
 
 import styled from "styled-components";
 import { PageWrapper } from "../components/page-wrapper";
-import { PageFrame } from "../components/page-frame";
 import { CursorRow } from "../components/CursorRow";
 import { Index } from "../constants/siteConstants";
+import { AsciiComputer } from "../components/AsciiComputer";
 
 const IndexPage: FC = () => {
   return (
@@ -19,6 +19,9 @@ const IndexPage: FC = () => {
           <IntroContainer>
             <CursorRow text={ Index.intro } startTyping={ true } />
           </IntroContainer>
+          <IntroContainer>
+            <AsciiComputer />
+          </IntroContainer>
         </ContentContainer>
       </TerminalScreenFrame>
     </PageWrapper>
@@ -26,18 +29,17 @@ const IndexPage: FC = () => {
 };
 
 const HeaderContainer = styled.div`
-  height: 250px;
   margin-bottom: 20px;
 `;
 
 const Header = styled.pre`
   color: white;
   margin: 0;
+  padding: 0;
+  display: inline-block;
 `;
 
-const TerminalScreenFrame = styled(PageFrame)`
-  background-color: black;
-  color: white;
+const TerminalScreenFrame = styled.div`
   display: flex;
   flex-direction: column;
 `;
@@ -46,14 +48,15 @@ const ContentContainer = styled.div`
   display: flex;
   flex-direction: row;
   height: 100%;
-  flex-grow: 1;
+  flex-grow: 0;
 `;
 
 const IntroContainer = styled.div`
   border: 5px dashed white;
   padding: 15px;
-  width: 50%;
-  box-sizing: border-box;
+  flex-grow: 1;
+  width: 45%;
+  margin-right: 25px;
 `;
 
 export default IndexPage

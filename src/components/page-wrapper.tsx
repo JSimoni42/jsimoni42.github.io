@@ -16,5 +16,11 @@ export const PageWrapper: FC = ({ children }) => {
 const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
+    background-color: black;
+    color: white;
+  }
+
+  div {
+    box-sizing: border-box;
   }
 `;
