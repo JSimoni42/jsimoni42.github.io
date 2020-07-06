@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useCallback, useState } from "react";
 import styled from "styled-components";
 import { Computer } from "../constants/siteConstants";
 
@@ -31,8 +31,8 @@ export const AsciiComputer: FC = () => {
 const ComputerScreen = styled.div`
   display: inline-block;
   background-color: white;
-  width: 470px;
-  height: 280px;
+  width: calc(1em * 12);
+  height: calc(1em * 24.38);
 `;
 
 const ComputerPart = styled.pre`
