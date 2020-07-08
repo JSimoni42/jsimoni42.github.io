@@ -32,7 +32,6 @@ export const AsciiComputer: FC = ({ children }) => {
 
 const ComputerScreen = styled.div`
   display: inline-block;
-  background-color: white;
   width: 389px;
   height: 195px;
 `;

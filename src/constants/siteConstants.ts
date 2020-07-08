@@ -6,8 +6,7 @@ export const siteMetadata = {
 };
 
 export const Index = {
-  intro: `Howdy there! Welcome to my neat webpage. I kinda like it so far, but I think it could use some more time and
-    affection. I've got a rough set of plans and am letting my gut guide the direction.`.replace(/\\\\s{2,}/, " "),
+  intro: 'Welcome to my website! It\'s still very much a work in progress. Check back soon for further updates!',
 
   headerName: `
   ______/\\\\\\\\\\\\\\\\\\\\\\__________________/\\\\\\________________________________________/\\\\\\\\\\\\\\\\\\\\\\____________________________________________________________________
@@ -65,9 +64,9 @@ export const Computer = {
 | |                                                            | |
 : '.__________________________________________________________.' :
   ".____________________________\__/____________________________."
-                                ||
-                                ||
-                                ||
+                                 ||
+                                 ||
+                                 ||
                               ___||___
                         _.--""   ""   ""--._
                     .'"       .-L-.        "'.

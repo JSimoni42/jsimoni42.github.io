@@ -49,8 +49,6 @@ export const CursorRow: FC<Props> = ({
 };
 
 const TextContainer = styled.span`
-  font-family: 'Roboto Mono', monospace;
-
   &::selection {
     background-color: white;
     color: black;
