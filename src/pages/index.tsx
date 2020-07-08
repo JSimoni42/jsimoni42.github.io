@@ -38,6 +38,8 @@ const ComputerContent = styled(AutoplayVideos)`
 
 const HeaderContainer = styled.div`
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 `;
 
 const Header = styled.pre`
