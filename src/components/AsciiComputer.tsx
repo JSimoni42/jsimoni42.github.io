@@ -1,10 +1,10 @@
-import React, { FC, useCallback, useState } from "react";
+import React, { FC } from "react";
 import styled from "styled-components";
 import { Computer } from "../constants/siteConstants";
 
-export const AsciiComputer: FC = () => {
+export const AsciiComputer: FC = ({ children }) => {
   return (
-    <>
+    <div>
       <div>
         <ComputerPart>
           { Computer.top }
@@ -14,7 +14,9 @@ export const AsciiComputer: FC = () => {
         <ComputerPart>
           { Computer.left }
         </ComputerPart>
-        <ComputerScreen />
+        <ComputerScreen>
+          { children }
+        </ComputerScreen>
         <ComputerPart>
           { Computer.right }
         </ComputerPart>
@@ -24,15 +26,15 @@ export const AsciiComputer: FC = () => {
           { Computer.bottom }
         </ComputerPart>
       </div>
-    </>
+    </div>
   );
 };
 
 const ComputerScreen = styled.div`
   display: inline-block;
   background-color: white;
-  width: calc(1em * 12);
-  height: calc(1em * 24.38);
+  width: 473px;
+  height: 286px;
 `;
 
 const ComputerPart = styled.pre`

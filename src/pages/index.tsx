@@ -5,6 +5,7 @@ import { PageWrapper } from "../components/page-wrapper";
 import { CursorRow } from "../components/CursorRow";
 import { Index } from "../constants/siteConstants";
 import { AsciiComputer } from "../components/AsciiComputer";
+import { AutoplayVideos } from "../components/AutoplayVideos";
 
 const IndexPage: FC = () => {
   return (
@@ -19,14 +20,21 @@ const IndexPage: FC = () => {
           <IntroContainer>
             <CursorRow text={ Index.intro } startTyping={ true } />
           </IntroContainer>
-          <IntroContainer>
-            <AsciiComputer />
-          </IntroContainer>
+          <ComputerContainer>
+            <AsciiComputer>
+              <ComputerContent />
+            </AsciiComputer>
+          </ComputerContainer>
         </ContentContainer>
       </TerminalScreenFrame>
     </PageWrapper>
   )
 };
+
+const ComputerContent = styled(AutoplayVideos)`
+  width: 100%;
+  height: 100%;
+`;
 
 const HeaderContainer = styled.div`
   margin-bottom: 20px;
@@ -57,6 +65,12 @@ const IntroContainer = styled.div`
   flex-grow: 1;
   width: 45%;
   margin-right: 25px;
+`;
+
+const ComputerContainer = styled(IntroContainer)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 export default IndexPage
