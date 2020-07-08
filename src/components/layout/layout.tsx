@@ -8,8 +8,6 @@
 import React, { FC } from "react"
 import { siteMetadata } from "../../constants/siteConstants"
 import Header from "../header"
-import "./layout.css"
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface ComponentWithChildren {
   children: JSX.Element[] | JSX.Element;
