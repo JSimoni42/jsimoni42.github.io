@@ -116,5 +116,25 @@ export const RecordPlayer = {
   /  __ _            " " "    \\ 
 /_____________________________\\
 "-=-------------------------=-"`,
+  arm: 
+`-[]--. 
+       \\ 
+       _) 
+      /_/-.`,
+  playerWithoutArm: 
+`      ___________________
+     /   ________         \\
+    / ,-'         \`-.      \\
+   / (       o       )      \\
+  /   \`-._________,-'_       \\
+  /  __ _            " " "     \\ 
+/_____________________________ \\
+"-=-------------------------=-"`,
   credits: 'https://ascii.co.uk/art/recordplayer',
 };
+
+export const AudioUrls = [
+  'http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T897R10.mp3',
+  'http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/N11R03.mp3',
+  'http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T923R13.mp3'
+];
