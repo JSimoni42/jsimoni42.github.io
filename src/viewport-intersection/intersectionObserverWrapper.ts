@@ -1,6 +1,6 @@
 class IntersectionObserverWrapper {
-  private intersectionObserver: IntersectionObserver;
-  private listeners: IntersectionObserverCallback[];
+  private intersectionObserver: IntersectionObserver
+  private listeners: IntersectionObserverCallback[]
 
   constructor() {
     this.intersectionObserver = new IntersectionObserver(
@@ -8,32 +8,39 @@ class IntersectionObserverWrapper {
       {
         threshold: 0.1,
       }
-    );
-    this.listeners = [];
+    )
+    this.listeners = []
   }
 
   public getObserver() {
-    return this.intersectionObserver;
+    return this.intersectionObserver
   }
 
   public disconnect() {
-    this.intersectionObserver.disconnect();
-    this.listeners = [];
+    this.intersectionObserver.disconnect()
+    this.listeners = []
   }
 
   public addIntersectionListener(listener: IntersectionObserverCallback) {
-    this.listeners.push(listener);
+    this.listeners.push(listener)
   }
 
-  public removeIntersectionListener(listenerToRemove: IntersectionObserverCallback) {
-    this.listeners = this.listeners.filter((listener) => listener !== listenerToRemove);
+  public removeIntersectionListener(
+    listenerToRemove: IntersectionObserverCallback
+  ) {
+    this.listeners = this.listeners.filter(
+      listener => listener !== listenerToRemove
+    )
   }
 
-  public observerCallback(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
-    this.listeners.forEach((listener) => {
-      listener(entries, observer);
-    });
+  public observerCallback(
+    entries: IntersectionObserverEntry[],
+    observer: IntersectionObserver
+  ) {
+    this.listeners.forEach(listener => {
+      listener(entries, observer)
+    })
   }
 }
 
-export default new IntersectionObserverWrapper();
+export default new IntersectionObserverWrapper()

@@ -1,24 +1,22 @@
-import { FC } from "react";
-import { SiteHelmet } from "./site-helmet";
-import React from "react";
-import styled, { createGlobalStyle } from "styled-components";
-import { Computer, MobileBreakpoint } from "../constants/siteConstants";
-import { Link } from "gatsby";
+import { FC } from "react"
+import { SiteHelmet } from "./site-helmet"
+import React from "react"
+import styled, { createGlobalStyle } from "styled-components"
+import { Computer, MobileBreakpoint } from "../constants/siteConstants"
+import { Link } from "gatsby"
 
 export const PageWrapper: FC = ({ children }) => {
   return (
     <>
       <SiteHelmet />
       <GlobalStyle />
-      { children }
+      {children}
       <Footer>
-        <Link to='/credits'>
-          Give credit where credit is due
-        </Link>
+        <Link to="/credits">Give credit where credit is due</Link>
       </Footer>
     </>
-  );
-};
+  )
+}
 
 const Footer = styled.footer`
   display: flex;
@@ -29,7 +27,7 @@ const Footer = styled.footer`
     flex-direction: column;
     align-items: center;
   }
-`;
+`
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -46,4 +44,4 @@ const GlobalStyle = createGlobalStyle`
   a:link, a:visited {
     color: white;
   }
-`;
+`

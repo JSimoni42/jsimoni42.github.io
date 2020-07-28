@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import React, { FC } from "react"
 
 interface Props {
-  siteTitle: string;
+  siteTitle: string
 }
 
 const Header: FC<Props> = ({ siteTitle = "" }) => (

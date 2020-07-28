@@ -1,59 +1,57 @@
-import React, { FC, HTMLAttributes, useState, useEffect, useRef } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { FC, HTMLAttributes, useState, useEffect, useRef } from "react"
+import styled, { keyframes } from "styled-components"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
-  text: string;
-  startTyping: boolean;
-  delay?: number;
+  text: string
+  startTyping: boolean
+  delay?: number
 }
 
 export const CursorRow: FC<Props> = ({
   text,
   startTyping,
-  className = '',
+  className = "",
   delay = 100,
 }) => {
-  const [ typedText, setTypedText ] = useState("");
-  const callback = useRef<() => void>();
+  const [typedText, setTypedText] = useState("")
+  const callback = useRef<() => void>()
 
   useEffect(() => {
-    callback.current = (): void =>  {
+    callback.current = (): void => {
       if (text === typedText) {
-        return;
+        return
       } else {
-        const currentIndex = typedText.length;
-        setTypedText(t => t + text[currentIndex]);
+        const currentIndex = typedText.length
+        setTypedText(t => t + text[currentIndex])
       }
     }
-  }, [ text, typedText ])
+  }, [text, typedText])
 
   useEffect(() => {
     if (startTyping) {
       const tick = () => {
-        callback.current?.();
+        callback.current?.()
       }
 
-      const intervalId = setInterval(tick, delay);
-      return () => clearInterval(intervalId);
+      const intervalId = setInterval(tick, delay)
+      return () => clearInterval(intervalId)
     }
-  }, [ startTyping ]);
+  }, [startTyping])
 
   return (
-    <div className={ className }>
-      <TextContainer>
-        { typedText }
-      </TextContainer>
+    <div className={className}>
+      <TextContainer>{typedText}</TextContainer>
       <Cursor />
     </div>
-  );
-};
+  )
+}
 
 const TextContainer = styled.span`
   &::selection {
     background-color: white;
     color: black;
   }
-`;
+`
 
 const Blinking = keyframes`
   from {
@@ -63,7 +61,7 @@ const Blinking = keyframes`
   to {
     background-color: black;
   }
-`;
+`
 
 const Cursor = styled.div`
   display: inline-block;
@@ -72,4 +70,4 @@ const Cursor = styled.div`
   width: 10px;
   animation: ${Blinking} 1s linear infinite;
   vertical-align: text-top;
-`;
+`

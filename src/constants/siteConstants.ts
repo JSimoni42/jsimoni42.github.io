@@ -3,10 +3,11 @@ export const siteMetadata = {
   description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the
     main Gatsby configuration files you might need.`,
   author: `@gatsbyjs`,
-};
+}
 
 export const Index = {
-  intro: 'Welcome to my website! It\'s still very much a work in progress. Check back soon for further updates!',
+  intro:
+    "Welcome to my website! It's still very much a work in progress. Check back soon for further updates!",
 
   headerName: `
   ____/\\\\\\\\\\\\\\\\\\\\\\__________________/\\\\\\________________________________________/\\\\\\\\\\\\\\\\\\\\\\____________________________________________________________________
@@ -20,7 +21,7 @@ export const Index = {
         __\\/////////___________\\/////______\\///____\\///___\\///____\\///________________\\///////////______\\///___\\///___\\///___\\///______\\/////______\\///____\\///___\\///__
   `,
 
-  mobileHeaderName:`
+  mobileHeaderName: `
 ______/\\\\\\\\\\\\\\\\\\\\\\___________/\\\\\\\\\\\\\\\\\\\\\\_________
  _____\\/////\\\\\\///__________/\\\\\\/////////\\\\\\_______
   _________\\/\\\\\\____________\\//\\\\\\______\\///________
@@ -31,7 +32,7 @@ ______/\\\\\\\\\\\\\\\\\\\\\\___________/\\\\\\\\\\\\\\\\\\\\\\_________
        _\\//\\\\\\\\\\\\\\\\\\_______/\\\\\\_\\///\\\\\\\\\\\\\\\\\\\\\\/____/\\\\\\_
         __\\/////////_______\\///____\\///////////_____\\///__
 `,
-};
+}
 
 export const Computer = {
   top: `  ______________________________________________________________
@@ -40,8 +41,7 @@ export const Computer = {
 | |      ________________________________________________      | |
 | |    .:________________________________________________:.    | |`,
 
-  left:
-  `| |    |
+  left: `| |    |
 | |    |
 | |    |
 | |    |
@@ -55,8 +55,7 @@ export const Computer = {
 | |    |
 | |    |`,
 
-  right:
-  `|    | |
+  right: `|    | |
 |    | |
 |    | |
 |    | |
@@ -70,8 +69,7 @@ export const Computer = {
 |    | |
 |    | |`,
 
-  bottom:
-  `| |    '.__________.__._.__.__.__.__.__.__.__.__________.'     | |
+  bottom: `| |    '.__________.__._.__.__.__.__.__.__.__.__________.'     | |
 | |                                                            | |
 | |                                                            | |
 : '.__________________________________________________________.' :
@@ -94,21 +92,20 @@ export const Computer = {
                 "-.____. . . . . . . . . . ____.-"
                         """"""--------""""""
   `,
-  credits: `https://asciiart.website/index.php?art=objects/computers`
-};
+  credits: `https://asciiart.website/index.php?art=objects/computers`,
+}
 
 export const VideoURLs = [
-  'https://www.nps.gov/audiovideo/grca/91162C25-155D-451F-67DF168A253376F7/grca-corridorandtontopivot_480x270.mp4',
-  'https://www.nps.gov/audiovideo/grca/B2DC583D-155D-451F-67D16448F5ADCF84/grca-inner-gorge-straight-down_480x270.mp4',
-  'https://archive.org/download/AboutBan1935/AboutBan1935.mp4',
-  'https://ia800900.us.archive.org/32/items/IBMPerso1987/IBMPerso1987_512kb.mp4'
-];
+  "https://www.nps.gov/audiovideo/grca/91162C25-155D-451F-67DF168A253376F7/grca-corridorandtontopivot_480x270.mp4",
+  "https://www.nps.gov/audiovideo/grca/B2DC583D-155D-451F-67D16448F5ADCF84/grca-inner-gorge-straight-down_480x270.mp4",
+  "https://archive.org/download/AboutBan1935/AboutBan1935.mp4",
+  "https://ia800900.us.archive.org/32/items/IBMPerso1987/IBMPerso1987_512kb.mp4",
+]
 
-export const MobileBreakpoint = '375px';
+export const MobileBreakpoint = "375px"
 
 export const RecordPlayer = {
-  player: 
-`      ___________________
+  player: `      ___________________
      /   ________ -[]--. \\
     / ,-'         \`-.   \\ \\
    / (       o       )  _) \\
@@ -116,13 +113,11 @@ export const RecordPlayer = {
   /  __ _            " " "    \\ 
 /_____________________________\\
 "-=-------------------------=-"`,
-  arm: 
-`-[]--. 
+  arm: `-[]--. 
        \\ 
        _) 
       /_/-.`,
-  playerWithoutArm: 
-`      ___________________
+  playerWithoutArm: `      ___________________
      /   ________         \\
     / ,-'         \`-.      \\
    / (       o       )      \\
@@ -130,11 +125,11 @@ export const RecordPlayer = {
   /  __ _            " " "     \\ 
 /_____________________________ \\
 "-=-------------------------=-"`,
-  credits: 'https://ascii.co.uk/art/recordplayer',
-};
+  credits: "https://ascii.co.uk/art/recordplayer",
+}
 
 export const AudioUrls = [
-  'http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T897R10.mp3',
-  'http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/N11R03.mp3',
-  'http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T923R13.mp3'
-];
+  "http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T897R10.mp3",
+  "http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/N11R03.mp3",
+  "http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T923R13.mp3",
+]

@@ -1,4 +1,4 @@
 export interface SidebarElement {
-  elementId: string;
-  title: string;
+  elementId: string
+  title: string
 }

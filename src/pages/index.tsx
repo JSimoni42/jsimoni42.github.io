@@ -1,10 +1,10 @@
 import React, { FC } from "react"
 
-import styled from "styled-components";
-import { PageWrapper } from "../components/page-wrapper";
-import { DesktopIndex } from "../components/index/Desktop";
-import { MobileIndex } from "../components/index/Mobile";
-import { MobileBreakpoint } from "../constants/siteConstants";
+import styled from "styled-components"
+import { PageWrapper } from "../components/page-wrapper"
+import { DesktopIndex } from "../components/index/Desktop"
+import { MobileIndex } from "../components/index/Mobile"
+import { MobileBreakpoint } from "../constants/siteConstants"
 
 const IndexPage: FC = () => {
   return (
@@ -15,18 +15,18 @@ const IndexPage: FC = () => {
       </TerminalScreenFrame>
     </PageWrapper>
   )
-};
+}
 
 const TerminalScreenFrame = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
 const ResponsiveDesktopIndex = styled(DesktopIndex)`
   @media (max-width: ${MobileBreakpoint}) {
     display: none;
   }
-`;
+`
 
 const ResponsiveMobileIndex = styled(MobileIndex)`
   font-size: 8px;
@@ -35,6 +35,6 @@ const ResponsiveMobileIndex = styled(MobileIndex)`
   @media (max-width: ${MobileBreakpoint}) {
     display: inline-block;
   }
-`;
+`
 
 export default IndexPage

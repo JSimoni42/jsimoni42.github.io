@@ -10,15 +10,15 @@ import { Helmet, IMeta } from "react-helmet"
 import { siteMetadata } from "../constants/siteConstants"
 
 interface Props {
-  description?: string;
-  lang?: string;
-  meta?: IMeta[];
-  title: string;
+  description?: string
+  lang?: string
+  meta?: IMeta[]
+  title: string
 }
 
 const SEO: FC<Props> = ({
-  description = '',
-  lang = 'en',
+  description = "",
+  lang = "en",
   meta = [],
   title,
 }) => {

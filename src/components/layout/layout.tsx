@@ -10,7 +10,7 @@ import { siteMetadata } from "../../constants/siteConstants"
 import Header from "../header"
 
 interface ComponentWithChildren {
-  children: JSX.Element[] | JSX.Element;
+  children: JSX.Element[] | JSX.Element
 }
 
 const Layout: FC<ComponentWithChildren> = ({ children }) => {
@@ -24,7 +24,7 @@ const Layout: FC<ComponentWithChildren> = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
           <main>{children}</main>
         </div>
         <footer>
