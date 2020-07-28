@@ -2,7 +2,8 @@ import { FC } from "react";
 import { SiteHelmet } from "./site-helmet";
 import React from "react";
 import styled, { createGlobalStyle } from "styled-components";
-import { Computer } from "../constants/siteConstants";
+import { Computer, MobileBreakpoint } from "../constants/siteConstants";
+import { Link } from "gatsby";
 
 export const PageWrapper: FC = ({ children }) => {
   return (
@@ -11,7 +12,9 @@ export const PageWrapper: FC = ({ children }) => {
       <GlobalStyle />
       { children }
       <Footer>
-        Computer ASCII Art Sourced From&nbsp;<a href={ Computer.credits }>asciiart.website</a>
+        <Link to='/credits'>
+          Give credit where credit is due
+        </Link>
       </Footer>
     </>
   );
@@ -22,8 +25,9 @@ const Footer = styled.footer`
   justify-content: center;
   margin: 10px 0;
 
-  a:link, a:visited {
-    color: white;
+  @media (max-width: ${MobileBreakpoint}) {
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -37,5 +41,9 @@ const GlobalStyle = createGlobalStyle`
 
   div {
     box-sizing: border-box;
+  }
+
+  a:link, a:visited {
+    color: white;
   }
 `;

@@ -21,7 +21,7 @@ export const Index = {
   `,
 
   mobileHeaderName:`
-  ______/\\\\\\\\\\\\\\\\\\\\\\___________/\\\\\\\\\\\\\\\\\\\\\\_________
+______/\\\\\\\\\\\\\\\\\\\\\\___________/\\\\\\\\\\\\\\\\\\\\\\_________
  _____\\/////\\\\\\///__________/\\\\\\/////////\\\\\\_______
   _________\\/\\\\\\____________\\//\\\\\\______\\///________
    _________\\/\\\\\\_____________\\////\\\\\\_______________
@@ -101,7 +101,20 @@ export const VideoURLs = [
   'https://www.nps.gov/audiovideo/grca/91162C25-155D-451F-67DF168A253376F7/grca-corridorandtontopivot_480x270.mp4',
   'https://www.nps.gov/audiovideo/grca/B2DC583D-155D-451F-67D16448F5ADCF84/grca-inner-gorge-straight-down_480x270.mp4',
   'https://archive.org/download/AboutBan1935/AboutBan1935.mp4',
-  'https://archive.org//download/SanFrancisco1955CinemascopeFilm/SanFrancisco.mp4'
+  'https://ia800900.us.archive.org/32/items/IBMPerso1987/IBMPerso1987_512kb.mp4'
 ];
 
-export const StaticVideoURL = '';
+export const MobileBreakpoint = '375px';
+
+export const RecordPlayer = {
+  player: 
+`      ___________________
+     /   ________ -[]--. \\
+    / ,-'         \`-.   \\ \\
+   / (       o       )  _) \\
+  /   \`-._________,-'_ /_/-.\\
+  /  __ _            " " "    \\ 
+/_____________________________\\
+"-=-------------------------=-"`,
+  credits: 'https://ascii.co.uk/art/recordplayer',
+};

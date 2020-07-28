@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { PageWrapper } from "../components/page-wrapper";
 import { DesktopIndex } from "../components/index/Desktop";
 import { MobileIndex } from "../components/index/Mobile";
+import { MobileBreakpoint } from "../constants/siteConstants";
 
 const IndexPage: FC = () => {
   return (
@@ -22,16 +23,16 @@ const TerminalScreenFrame = styled.div`
 `;
 
 const ResponsiveDesktopIndex = styled(DesktopIndex)`
-  @media (max-width: 320px) {
+  @media (max-width: ${MobileBreakpoint}) {
     display: none;
   }
 `;
 
 const ResponsiveMobileIndex = styled(MobileIndex)`
   font-size: 8px;
-
   display: none;
-  @media (max-width: 320px) {
+
+  @media (max-width: ${MobileBreakpoint}) {
     display: inline-block;
   }
 `;
