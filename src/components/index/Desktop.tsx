@@ -50,17 +50,20 @@ const ContentContainer = styled.div`
   flex-direction: row;
   height: 100%;
   flex-grow: 0;
-`
+`;
 
-const IntroContainer = styled.div`
+const DashedContainer = styled.div`
   border: 5px dashed white;
   padding: 15px;
   flex-grow: 1;
   width: 45%;
+`;
+
+const IntroContainer = styled(DashedContainer)`
   margin-right: 25px;
 `
 
-const ComputerContainer = styled(IntroContainer)`
+const ComputerContainer = styled(DashedContainer)`
   display: flex;
   align-items: center;
   justify-content: center;

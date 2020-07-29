@@ -20,6 +20,7 @@ const IndexPage: FC = () => {
 const TerminalScreenFrame = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 0 15px;
 `
 
 const ResponsiveDesktopIndex = styled(DesktopIndex)`

@@ -44,4 +44,12 @@ const GlobalStyle = createGlobalStyle`
   a:link, a:visited {
     color: white;
   }
+
+  pre {
+    font-size: 0.75vw;
+
+    @media (max-width: ${MobileBreakpoint}) {
+      font-size: 1vh;
+    }
+  }
 `

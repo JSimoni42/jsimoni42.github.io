@@ -22,8 +22,8 @@ export const AsciiComputer: FC = ({ children }) => {
 
 const ComputerScreen = styled.div`
   display: inline-block;
-  width: 358px;
-  height: 195px;
+  width: 20.63vw;
+  height: 11vw;
 `
 
 const ComputerPart = styled.pre`
