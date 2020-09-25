@@ -1,4 +1,4 @@
-import React, { FC } from "react"
+import React, { FC, useLayoutEffect } from "react"
 
 import styled from "styled-components"
 import { PageWrapper } from "../components/page-wrapper"
@@ -6,14 +6,18 @@ import { DesktopIndex } from "../components/index/Desktop"
 import { MobileIndex } from "../components/index/Mobile"
 import { MobileBreakpoint } from "../constants/siteConstants"
 import { Link } from "gatsby"
+import { ResponsiveBreakpoint } from "../components/ResponsiveBreakpoint"
 
 const IndexPage: FC = () => {
   return (
     <>
       <PageWrapper>
         <TerminalScreenFrame>
-          <ResponsiveDesktopIndex />
-          <ResponsiveMobileIndex />
+          <ResponsiveBreakpoint
+            desktopView={ <DesktopIndex /> }
+            mobileView={ <ResponsiveMobileIndex /> }
+            breakpoint={ parseInt(MobileBreakpoint) }
+          />
         </TerminalScreenFrame>
       </PageWrapper>
       <Footer>
@@ -40,19 +44,8 @@ const TerminalScreenFrame = styled.div`
   padding: 0 15px;
 `
 
-const ResponsiveDesktopIndex = styled(DesktopIndex)`
-  @media (max-width: ${MobileBreakpoint}) {
-    display: none;
-  }
-`
-
 const ResponsiveMobileIndex = styled(MobileIndex)`
   font-size: 8px;
-  display: none;
-
-  @media (max-width: ${MobileBreakpoint}) {
-    display: inline-block;
-  }
 `
 
 export default IndexPage
