@@ -137,6 +137,8 @@ export const AudioUrls = [
   "http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T923R13.mp3",
 ]
 
-export const NATIONAL_ARCHIVES = "https://www.archives.gov/research";
-export const GALAKSIJA_ARTICLE = "https://www.jacobinmag.com/2020/08/computer-yugoslavia-galaksija-voja-antonic";
-export const RESUME = "https://d1onj8fhbqbvm7.cloudfront.net/John-Simoni-Resume.pdf"
+export const NATIONAL_ARCHIVES = "https://www.archives.gov/research"
+export const GALAKSIJA_ARTICLE =
+  "https://www.jacobinmag.com/2020/08/computer-yugoslavia-galaksija-voja-antonic"
+export const RESUME =
+  "https://d1onj8fhbqbvm7.cloudfront.net/John-Simoni-Resume.pdf"

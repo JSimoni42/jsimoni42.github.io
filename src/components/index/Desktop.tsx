@@ -8,14 +8,11 @@ import { AutoplayVideos } from "../AutoplayVideos"
 export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const [startTypingIndex, setStartTypingIndex] = useState(0);
+  const [startTypingIndex, setStartTypingIndex] = useState(0)
 
-  const onFinishTypingRow = useCallback(
-    () => {
-      setStartTypingIndex(startTypingIndex + 1);
-    }, [ startTypingIndex, setStartTypingIndex ]
-  );
-
+  const onFinishTypingRow = useCallback(() => {
+    setStartTypingIndex(startTypingIndex + 1)
+  }, [startTypingIndex, setStartTypingIndex])
 
   return (
     <div className={className ?? ""}>
@@ -24,16 +21,14 @@ export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
       </HeaderContainer>
       <ContentContainer>
         <BioContainer>
-          {
-            Index.intro.map((introSection, introIndex) => (
-              <CursorRow 
-                text={ introSection }
-                key={ introIndex }
-                startTyping={ startTypingIndex === introIndex }
-                onComplete={ onFinishTypingRow }
-              />
-            ))
-          }
+          {Index.intro.map((introSection, introIndex) => (
+            <CursorRow
+              text={introSection}
+              key={introIndex}
+              startTyping={startTypingIndex === introIndex}
+              onComplete={onFinishTypingRow}
+            />
+          ))}
         </BioContainer>
         <ComputerContainer>
           <AsciiComputer>
@@ -68,14 +63,14 @@ const ContentContainer = styled.div`
   flex-direction: row;
   height: 100%;
   flex-grow: 0;
-`;
+`
 
 const DashedContainer = styled.div`
   border: 5px dashed white;
   padding: 15px;
   flex-grow: 1;
   width: 45%;
-`;
+`
 
 const BioContainer = styled(DashedContainer)`
   margin-right: 25px;

@@ -1,7 +1,11 @@
 import React, { FC } from "react"
 import { PageFrame } from "../components/page-frame"
 import { PageWrapper } from "../components/page-wrapper"
-import { Computer, NATIONAL_ARCHIVES, RecordPlayer } from "../constants/siteConstants"
+import {
+  Computer,
+  NATIONAL_ARCHIVES,
+  RecordPlayer,
+} from "../constants/siteConstants"
 import { Link } from "gatsby"
 import styled from "styled-components"
 
@@ -32,6 +36,6 @@ const PageContainer = styled.div`
   padding: 20px;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 50px);
-`;
+`
 
 export default Credit

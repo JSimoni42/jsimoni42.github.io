@@ -1,9 +1,9 @@
-import { FC, ReactElement, useLayoutEffect, useState } from "react";
+import { FC, ReactElement, useLayoutEffect, useState } from "react"
 
 interface Props {
-  desktopView: ReactElement;
-  mobileView: ReactElement;
-  breakpoint: number;
+  desktopView: ReactElement
+  mobileView: ReactElement
+  breakpoint: number
 }
 
 export const ResponsiveBreakpoint: FC<Props> = ({
@@ -11,17 +11,15 @@ export const ResponsiveBreakpoint: FC<Props> = ({
   mobileView,
   breakpoint,
 }) => {
-  const [ currentView, setView ] = useState<'desktop' | 'mobile'>('desktop');
+  const [currentView, setView] = useState<"desktop" | "mobile">("desktop")
   useLayoutEffect(() => {
-    setView(
-      window.innerWidth >= breakpoint ? 'desktop' : 'mobile'
-    );
-  });
+    setView(window.innerWidth >= breakpoint ? "desktop" : "mobile")
+  })
 
   switch (currentView) {
-    case 'mobile':
-      return mobileView;
-    case 'desktop':
-      return desktopView;
+    case "mobile":
+      return mobileView
+    case "desktop":
+      return desktopView
   }
-};
+}
