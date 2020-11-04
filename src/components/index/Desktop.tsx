@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes } from "react"
+import React, { FC, HTMLAttributes, useCallback, useState } from "react"
 import styled from "styled-components"
 import { Index } from "../../constants/siteConstants"
 import { CursorRow } from "../CursorRow"
@@ -8,15 +8,33 @@ import { AutoplayVideos } from "../AutoplayVideos"
 export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
+  const [startTypingIndex, setStartTypingIndex] = useState(0);
+
+  const onFinishTypingRow = useCallback(
+    () => {
+      setStartTypingIndex(startTypingIndex + 1);
+    }, [ startTypingIndex, setStartTypingIndex ]
+  );
+
+
   return (
     <div className={className ?? ""}>
       <HeaderContainer>
         <Header>{Index.headerName}</Header>
       </HeaderContainer>
       <ContentContainer>
-        <IntroContainer>
-          <CursorRow text={Index.intro} startTyping={true} />
-        </IntroContainer>
+        <BioContainer>
+          {
+            Index.intro.map((introSection, introIndex) => (
+              <CursorRow 
+                text={ introSection }
+                key={ introIndex }
+                startTyping={ startTypingIndex === introIndex }
+                onComplete={ onFinishTypingRow }
+              />
+            ))
+          }
+        </BioContainer>
         <ComputerContainer>
           <AsciiComputer>
             <ComputerContent />
@@ -59,8 +77,10 @@ const DashedContainer = styled.div`
   width: 45%;
 `;
 
-const IntroContainer = styled(DashedContainer)`
+const BioContainer = styled(DashedContainer)`
   margin-right: 25px;
+  display: grid;
+  grid-row-gap: 15px;
 `
 
 const ComputerContainer = styled(DashedContainer)`

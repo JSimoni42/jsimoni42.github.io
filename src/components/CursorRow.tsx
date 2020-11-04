@@ -4,14 +4,16 @@ import styled, { keyframes } from "styled-components"
 interface Props extends HTMLAttributes<HTMLDivElement> {
   text: string
   startTyping: boolean
-  delay?: number
+  delay?: number,
+  onComplete?: () => void,
 }
 
 export const CursorRow: FC<Props> = ({
   text,
   startTyping,
   className = "",
-  delay = 100,
+  delay = 50,
+  onComplete = () => undefined,
 }) => {
   const [typedText, setTypedText] = useState("")
   const callback = useRef<() => void>()
@@ -19,6 +21,7 @@ export const CursorRow: FC<Props> = ({
   useEffect(() => {
     callback.current = (): void => {
       if (text === typedText) {
+        onComplete();
         return
       } else {
         const currentIndex = typedText.length
@@ -41,7 +44,7 @@ export const CursorRow: FC<Props> = ({
   return (
     <div className={className}>
       <TextContainer>{typedText}</TextContainer>
-      <Cursor />
+      { startTyping && <Cursor /> }
     </div>
   )
 }

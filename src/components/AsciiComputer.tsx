@@ -22,7 +22,7 @@ export const AsciiComputer: FC = ({ children }) => {
 
 const ComputerScreen = styled.div`
   display: inline-block;
-  width: 22.53vw;
+  width: 20.6vw;
   height: 11vw;
 `
 

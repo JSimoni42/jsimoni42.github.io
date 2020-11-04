@@ -6,8 +6,11 @@ export const siteMetadata = {
 }
 
 export const Index = {
-  intro:
-    "Welcome to my website! It's still very much a work in progress. Check back soon for further updates!",
+  intro: [
+    `Hello! My name is John and I'm a full-stack web tinkerer who is fascinated by the web's ability to be performative, archival, and accessible.`,
+    `I think programs broadcast over the radio are one of the coolest things ever invented but JSX is alright, too.`,
+    `Want to chat? Feel free to check out the links below.`,
+  ],
 
   headerName: `
   ____/\\\\\\\\\\\\\\\\\\\\\\__________________/\\\\\\________________________________________/\\\\\\\\\\\\\\\\\\\\\\____________________________________________________________________
@@ -133,3 +136,7 @@ export const AudioUrls = [
   "http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/N11R03.mp3",
   "http://c0383352.cdn.cloudfiles.rackspacecloud.com/audio/T923R13.mp3",
 ]
+
+export const NATIONAL_ARCHIVES = "https://www.archives.gov/research";
+export const GALAKSIJA_ARTICLE = "https://www.jacobinmag.com/2020/08/computer-yugoslavia-galaksija-voja-antonic";
+export const RESUME = "https://d1onj8fhbqbvm7.cloudfront.net/John-Simoni-Resume.pdf"

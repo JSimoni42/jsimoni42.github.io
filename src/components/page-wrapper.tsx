@@ -1,8 +1,8 @@
 import { FC } from "react"
 import { SiteHelmet } from "./site-helmet"
 import React from "react"
-import styled, { createGlobalStyle } from "styled-components"
-import { Computer, MobileBreakpoint } from "../constants/siteConstants"
+import { createGlobalStyle } from "styled-components"
+import { MobileBreakpoint } from "../constants/siteConstants"
 
 export const PageWrapper: FC = ({ children }) => {
   return (
