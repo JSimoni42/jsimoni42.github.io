@@ -26,10 +26,10 @@ const IndexPage: FC = () => {
       </PageWrapper>
       <Footer>
         <div>
-          <a href={RESUME}>Read an awesome resume</a>
+          <a target='_blank' href={RESUME}>Read an awesome resume</a>
         </div>
         <div>
-          <a href={GALAKSIJA_ARTICLE}>Learn about programs on the radio</a>
+          <a target='_blank' href={GALAKSIJA_ARTICLE}>Learn about programs on the radio</a>
         </div>
         <Link to="/credits">Give credit where credit is due</Link>
       </Footer>
