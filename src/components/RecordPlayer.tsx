@@ -4,11 +4,12 @@ import styled, { keyframes, css } from "styled-components"
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   isArmRotating: boolean
+  onClick?: () => void
 }
 
-export const RecordPlayer: FC<Props> = ({ className = "", isArmRotating }) => {
+export const RecordPlayer: FC<Props> = ({ className = "", isArmRotating, onClick }) => {
   return (
-    <PlayerContainer className={className}>
+    <PlayerContainer className={className} onClick={ onClick }>
       <PlayerArm isArmRotating={isArmRotating}>
         {PlayerComponents.arm}
       </PlayerArm>

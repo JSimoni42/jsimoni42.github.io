@@ -105,7 +105,7 @@ export const VideoURLs = [
   "https://ia800900.us.archive.org/32/items/IBMPerso1987/IBMPerso1987_512kb.mp4",
 ]
 
-export const MobileBreakpoint = "375px"
+export const MobileBreakpoint = "450px"
 
 export const RecordPlayer = {
   player: `      ___________________
@@ -142,3 +142,4 @@ export const GALAKSIJA_ARTICLE =
   "https://www.jacobinmag.com/2020/08/computer-yugoslavia-galaksija-voja-antonic"
 export const RESUME =
   "https://d1onj8fhbqbvm7.cloudfront.net/John-Simoni-Resume.pdf"
+export const EMAILME = "mailto:jsimoni03@gmail.com"

@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   pre {
-    font-size: 0.75vw;
+    font-size: 0.5vw;
 
     @media (max-width: ${MobileBreakpoint}) {
       font-size: 1vh;

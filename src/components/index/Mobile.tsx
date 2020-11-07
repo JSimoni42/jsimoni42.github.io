@@ -7,6 +7,7 @@ import React, {
 } from "react"
 import styled from "styled-components"
 import { Index, AudioUrls } from "../../constants/siteConstants"
+import { CursorRowGroup } from "../CursorRowGroup"
 import { RecordPlayer } from "../RecordPlayer"
 
 export const MobileIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -32,18 +33,42 @@ export const MobileIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
 
   const currentSong = AudioUrls[currentSongIndex]
 
+  const onRecordPlayerClick = () => {
+    setIsPlayingMusic(!isPlayingMusic);
+  };
+
   return (
-    <HeaderContainer className={className ?? ""}>
-      <Header>{Index.mobileHeaderName}</Header>
-      <RecordPlayerContainer>
-        <StyledRecordPlayer isArmRotating={isPlayingMusic} />
-        {isPlayingMusic && (
-          <HiddenAudio src={currentSong} autoPlay={true} ref={keepPlaying} />
-        )}
-      </RecordPlayerContainer>
-    </HeaderContainer>
+    <MobileContainer className={ className ?? "" }>
+      <HeaderContainer>
+        <Header>{Index.mobileHeaderName}</Header>
+        <RecordPlayerContainer>
+          <StyledRecordPlayer isArmRotating={isPlayingMusic} onClick={ onRecordPlayerClick } />
+          {isPlayingMusic && (
+            <HiddenAudio src={currentSong} autoPlay={true} ref={keepPlaying} />
+          )}
+        </RecordPlayerContainer>
+      </HeaderContainer>
+      <BioContainer>
+        <CursorRowGroup contentItems={ Index.intro } />
+      </BioContainer>
+    </MobileContainer>
   )
 }
+
+const MobileContainer = styled.div`
+  display: grid;
+  grid-row-gap: 40px;
+  margin: 0 15px;
+`
+
+const BioContainer = styled.div`
+  border: 5px dashed white;
+  padding: 15px;
+  display: grid;
+  grid-row-gap: 10px;
+  font-size: 0.9rem;
+  min-height: 231px;
+`;
 
 const HeaderContainer = styled.div`
   text-align: center;

@@ -1,34 +1,21 @@
-import React, { FC, HTMLAttributes, useCallback, useState } from "react"
+import React, { FC, HTMLAttributes } from "react"
 import styled from "styled-components"
 import { Index } from "../../constants/siteConstants"
-import { CursorRow } from "../CursorRow"
 import { AsciiComputer } from "../AsciiComputer"
 import { AutoplayVideos } from "../AutoplayVideos"
+import { CursorRowGroup } from "../CursorRowGroup"
 
 export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const [startTypingIndex, setStartTypingIndex] = useState(0)
-
-  const onFinishTypingRow = useCallback(() => {
-    setStartTypingIndex(startTypingIndex + 1)
-  }, [startTypingIndex, setStartTypingIndex])
-
   return (
-    <div className={className ?? ""}>
+    <DesktopContent className={className ?? ""}>
       <HeaderContainer>
         <Header>{Index.headerName}</Header>
       </HeaderContainer>
       <ContentContainer>
         <BioContainer>
-          {Index.intro.map((introSection, introIndex) => (
-            <CursorRow
-              text={introSection}
-              key={introIndex}
-              startTyping={startTypingIndex === introIndex}
-              onComplete={onFinishTypingRow}
-            />
-          ))}
+          <CursorRowGroup contentItems={ Index.intro } />
         </BioContainer>
         <ComputerContainer>
           <AsciiComputer>
@@ -36,9 +23,15 @@ export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
           </AsciiComputer>
         </ComputerContainer>
       </ContentContainer>
-    </div>
+    </DesktopContent>
   )
 }
+
+const DesktopContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 50px;
+`;
 
 const HeaderContainer = styled.div`
   margin-bottom: 20px;

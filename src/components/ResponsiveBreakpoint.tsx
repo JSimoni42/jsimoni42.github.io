@@ -13,7 +13,7 @@ export const ResponsiveBreakpoint: FC<Props> = ({
 }) => {
   const [currentView, setView] = useState<"desktop" | "mobile">("desktop")
   useLayoutEffect(() => {
-    setView(window.innerWidth >= breakpoint ? "desktop" : "mobile")
+    setView(window.outerWidth >= breakpoint ? "desktop" : "mobile")
   })
 
   switch (currentView) {

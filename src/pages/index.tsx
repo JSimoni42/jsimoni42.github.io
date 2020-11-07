@@ -5,6 +5,7 @@ import { PageWrapper } from "../components/page-wrapper"
 import { DesktopIndex } from "../components/index/Desktop"
 import { MobileIndex } from "../components/index/Mobile"
 import {
+  EMAILME,
   GALAKSIJA_ARTICLE,
   MobileBreakpoint,
   RESUME,
@@ -19,12 +20,15 @@ const IndexPage: FC = () => {
         <TerminalScreenFrame>
           <ResponsiveBreakpoint
             desktopView={<DesktopIndex />}
-            mobileView={<ResponsiveMobileIndex />}
+            mobileView={<MobileIndex />}
             breakpoint={parseInt(MobileBreakpoint)}
           />
         </TerminalScreenFrame>
       </PageWrapper>
       <Footer>
+        <div>
+          <a target="_blank" href={ EMAILME }>Write me an e-mail</a>
+        </div>
         <div>
           <a target='_blank' href={RESUME}>Read an awesome resume</a>
         </div>
@@ -49,13 +53,6 @@ const Footer = styled.footer`
 `
 
 const TerminalScreenFrame = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 0 15px;
-`
-
-const ResponsiveMobileIndex = styled(MobileIndex)`
-  font-size: 8px;
 `
 
 export default IndexPage
