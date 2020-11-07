@@ -1,8 +1,8 @@
-import React, { FC, useCallback, useState } from "react";
-import { CursorRow } from "./CursorRow";
+import React, { FC, useCallback, useState } from "react"
+import { CursorRow } from "./CursorRow"
 
 interface IOwnProps {
-    contentItems: string[]
+  contentItems: string[]
 }
 
 export const CursorRowGroup: FC<IOwnProps> = ({ contentItems }) => {
@@ -12,17 +12,16 @@ export const CursorRowGroup: FC<IOwnProps> = ({ contentItems }) => {
     setStartTypingIndex(startTypingIndex + 1)
   }, [startTypingIndex, setStartTypingIndex])
 
-    return (
-        <>
-            {contentItems.map((section, index) => (
-            <CursorRow
-              text={section}
-              key={index}
-              startTyping={startTypingIndex === index}
-              onComplete={onFinishTypingRow}
-            />
-          ))
-            }
-        </>
-    );
-};
+  return (
+    <>
+      {contentItems.map((section, index) => (
+        <CursorRow
+          text={section}
+          key={index}
+          startTyping={startTypingIndex === index}
+          onComplete={onFinishTypingRow}
+        />
+      ))}
+    </>
+  )
+}

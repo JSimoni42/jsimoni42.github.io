@@ -27,13 +27,19 @@ const IndexPage: FC = () => {
       </PageWrapper>
       <Footer>
         <div>
-          <a target="_blank" href={ EMAILME }>Write me an e-mail</a>
+          <a target="_blank" href={EMAILME}>
+            Write me an e-mail
+          </a>
         </div>
         <div>
-          <a target='_blank' href={RESUME}>Read an awesome resume</a>
+          <a target="_blank" href={RESUME}>
+            Read an awesome resume
+          </a>
         </div>
         <div>
-          <a target='_blank' href={GALAKSIJA_ARTICLE}>Learn about programs on the radio</a>
+          <a target="_blank" href={GALAKSIJA_ARTICLE}>
+            Learn about programs on the radio
+          </a>
         </div>
         <Link to="/credits">Give credit where credit is due</Link>
       </Footer>
@@ -52,7 +58,6 @@ const Footer = styled.footer`
   }
 `
 
-const TerminalScreenFrame = styled.div`
-`
+const TerminalScreenFrame = styled.div``
 
 export default IndexPage

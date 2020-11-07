@@ -34,22 +34,25 @@ export const MobileIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
   const currentSong = AudioUrls[currentSongIndex]
 
   const onRecordPlayerClick = () => {
-    setIsPlayingMusic(!isPlayingMusic);
-  };
+    setIsPlayingMusic(!isPlayingMusic)
+  }
 
   return (
-    <MobileContainer className={ className ?? "" }>
+    <MobileContainer className={className ?? ""}>
       <HeaderContainer>
         <Header>{Index.mobileHeaderName}</Header>
         <RecordPlayerContainer>
-          <StyledRecordPlayer isArmRotating={isPlayingMusic} onClick={ onRecordPlayerClick } />
+          <StyledRecordPlayer
+            isArmRotating={isPlayingMusic}
+            onClick={onRecordPlayerClick}
+          />
           {isPlayingMusic && (
             <HiddenAudio src={currentSong} autoPlay={true} ref={keepPlaying} />
           )}
         </RecordPlayerContainer>
       </HeaderContainer>
       <BioContainer>
-        <CursorRowGroup contentItems={ Index.intro } />
+        <CursorRowGroup contentItems={Index.intro} />
       </BioContainer>
     </MobileContainer>
   )
@@ -68,7 +71,7 @@ const BioContainer = styled.div`
   grid-row-gap: 10px;
   font-size: 0.9rem;
   min-height: 231px;
-`;
+`
 
 const HeaderContainer = styled.div`
   text-align: center;

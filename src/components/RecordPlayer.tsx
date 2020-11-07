@@ -7,9 +7,13 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   onClick?: () => void
 }
 
-export const RecordPlayer: FC<Props> = ({ className = "", isArmRotating, onClick }) => {
+export const RecordPlayer: FC<Props> = ({
+  className = "",
+  isArmRotating,
+  onClick,
+}) => {
   return (
-    <PlayerContainer className={className} onClick={ onClick }>
+    <PlayerContainer className={className} onClick={onClick}>
       <PlayerArm isArmRotating={isArmRotating}>
         {PlayerComponents.arm}
       </PlayerArm>

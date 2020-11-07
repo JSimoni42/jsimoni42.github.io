@@ -15,7 +15,7 @@ export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
       </HeaderContainer>
       <ContentContainer>
         <BioContainer>
-          <CursorRowGroup contentItems={ Index.intro } />
+          <CursorRowGroup contentItems={Index.intro} />
         </BioContainer>
         <ComputerContainer>
           <AsciiComputer>
@@ -31,7 +31,7 @@ const DesktopContent = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 50px;
-`;
+`
 
 const HeaderContainer = styled.div`
   margin-bottom: 20px;
