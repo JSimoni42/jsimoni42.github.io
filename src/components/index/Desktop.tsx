@@ -8,14 +8,16 @@ import { CursorRowGroup } from "../CursorRowGroup"
 export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
+  const [ finishTypingIntro, setFinishTypingIntro ] = React.useState(false)
+
   return (
     <DesktopContent className={className ?? ""}>
       <HeaderContainer>
         <Header>{Index.headerName}</Header>
       </HeaderContainer>
       <ContentContainer>
-        <BioContainer>
-          <CursorRowGroup contentItems={Index.intro} />
+        <BioContainer onDoubleClick={() => setFinishTypingIntro(true)}>
+          <CursorRowGroup contentItems={Index.intro} finishTyping={finishTypingIntro} />
         </BioContainer>
         <ComputerContainer>
           <AsciiComputer>

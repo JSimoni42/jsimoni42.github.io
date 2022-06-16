@@ -6,6 +6,7 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
   startTyping: boolean
   delay?: number
   onComplete?: () => void
+  finishTyping: boolean
 }
 
 export const CursorRow: FC<Props> = ({
@@ -14,6 +15,7 @@ export const CursorRow: FC<Props> = ({
   className = "",
   delay = 50,
   onComplete = () => undefined,
+  finishTyping,
 }) => {
   const [typedText, setTypedText] = useState("")
   const callback = useRef<() => void>()
@@ -40,6 +42,12 @@ export const CursorRow: FC<Props> = ({
       return () => clearInterval(intervalId)
     }
   }, [startTyping])
+
+  useEffect(() => {
+    if (finishTyping) {
+      setTypedText(text)
+    }
+  }, [finishTyping])
 
   return (
     <div className={className}>
