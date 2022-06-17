@@ -6,7 +6,10 @@ interface IOwnProps {
   finishTyping?: boolean
 }
 
-export const CursorRowGroup: FC<IOwnProps> = ({ contentItems, finishTyping = false }) => {
+export const CursorRowGroup: FC<IOwnProps> = ({
+  contentItems,
+  finishTyping = false,
+}) => {
   const [startTypingIndex, setStartTypingIndex] = useState(0)
 
   const onFinishTypingRow = useCallback(() => {

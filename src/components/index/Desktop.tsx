@@ -8,7 +8,7 @@ import MountainBiking from "../MountainBiking"
 export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const [ finishTypingIntro, setFinishTypingIntro ] = React.useState(false)
+  const [finishTypingIntro, setFinishTypingIntro] = React.useState(false)
 
   return (
     <DesktopContent className={className ?? ""}>
@@ -17,7 +17,10 @@ export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
       </HeaderContainer>
       <ContentContainer>
         <BioContainer onDoubleClick={() => setFinishTypingIntro(true)}>
-          <CursorRowGroup contentItems={Index.intro} finishTyping={finishTypingIntro} />
+          <CursorRowGroup
+            contentItems={Index.intro}
+            finishTyping={finishTypingIntro}
+          />
         </BioContainer>
         <ComputerContainer>
           <AsciiComputer>
