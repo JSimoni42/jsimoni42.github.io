@@ -9,6 +9,7 @@ export const Index = {
   intro: [
     `Hello! My name is John and I'm a full-stack web tinkerer who is fascinated by the web's ability to be performative, archival, and accessible.`,
     `I think programs broadcast over the radio are one of the coolest things ever invented but JSX is alright, too.`,
+    `If I'm not coding, you'll probably find me exploring the outdoors on my bike or trying a new recipe.`,
     `Want to chat? Feel free to check out the links below.`,
   ],
 
