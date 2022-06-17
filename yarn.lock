@@ -7334,6 +7334,11 @@ gatsby-page-utils@^0.2.7:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
+gatsby-plugin-browser-dependencies@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-browser-dependencies/-/gatsby-plugin-browser-dependencies-1.0.1.tgz#d5f7494fa74917dd77b27016519cf4aa64a901b1"
+  integrity sha512-uhxOvorMuUmqPkfNzJVpqYx7LfJMiOQZ6WqheSbVtIeIf5m5u5WDWvdxSRwZVzXhQe06sHx4XuIz4jI6CsdHDw==
+
 gatsby-plugin-manifest@^2.4.9:
   version "2.4.9"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.4.9.tgz#f211d87cf3d06a5bfd0619b6844b156abd837d43"
