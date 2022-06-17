@@ -2,8 +2,8 @@ import React, { FC, HTMLAttributes } from "react"
 import styled from "styled-components"
 import { Index } from "../../constants/siteConstants"
 import { AsciiComputer } from "../AsciiComputer"
-import { AutoplayVideos } from "../AutoplayVideos"
 import { CursorRowGroup } from "../CursorRowGroup"
+import MountainBiking from "../MountainBiking"
 
 export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
@@ -41,7 +41,7 @@ const HeaderContainer = styled.div`
   justify-content: center;
 `
 
-const ComputerContent = styled(AutoplayVideos)`
+const ComputerContent = styled(MountainBiking)`
   width: 100%;
   height: 100%;
 `
