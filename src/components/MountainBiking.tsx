@@ -44,8 +44,6 @@ function drawMountain(layer: Konva.Layer, stageWidth: number, ground: number): v
         )
     }
 
-    console.log(points)
-
     const mountain = new Konva.Line({
         points,
         stroke: 'white',
