@@ -32,11 +32,6 @@ const IndexPage: FC = () => {
           </a>
         </div>
         <div>
-          <a target="_blank" href={RESUME}>
-            Read an awesome resume
-          </a>
-        </div>
-        <div>
           <a target="_blank" href={GALAKSIJA_ARTICLE}>
             Learn about programs on the radio
           </a>
