@@ -8,9 +8,7 @@ import {
   EMAILME,
   GALAKSIJA_ARTICLE,
   MobileBreakpoint,
-  RESUME,
 } from "../constants/siteConstants"
-import { Link } from "gatsby"
 import { ResponsiveBreakpoint } from "../components/ResponsiveBreakpoint"
 
 const IndexPage: FC = () => {
@@ -31,12 +29,7 @@ const IndexPage: FC = () => {
             Write me an e-mail
           </a>
         </div>
-        <div>
-          <a target="_blank" href={GALAKSIJA_ARTICLE}>
-            Learn about programs on the radio
-          </a>
-        </div>
-        <Link to="/credits">Give credit where credit is due</Link>
+        <a href="/credits">Give credit where credit is due</a>
       </Footer>
     </>
   )

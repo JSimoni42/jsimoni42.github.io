@@ -1,12 +1,10 @@
 import React, { FC } from "react"
-import { PageFrame } from "../components/page-frame"
 import { PageWrapper } from "../components/page-wrapper"
 import {
   Computer,
   NATIONAL_ARCHIVES,
   RecordPlayer,
 } from "../constants/siteConstants"
-import { Link } from "gatsby"
 import styled from "styled-components"
 
 const Credit: FC = () => {
@@ -25,7 +23,7 @@ const Credit: FC = () => {
           All video and audio footage comes from&nbsp;
           <a href={NATIONAL_ARCHIVES}>the national archives</a>
         </div>
-        <Link to="/">Go Home</Link>
+        <a href="/">Go Home</a>
       </PageContainer>
     </PageWrapper>
   )
