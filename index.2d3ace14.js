@@ -35417,7 +35417,7 @@ const AsciiComputer = ({ children  })=>{
 _c = AsciiComputer;
 const ComputerScreen = (0, _styledComponentsDefault.default).div`
   display: inline-block;
-  width: 15vw;
+  width: 13.7vw;
   height: 7vw;
 `;
 _c1 = ComputerScreen;
@@ -35615,11 +35615,11 @@ var _react = require("react");
 var _reactDefault = parcelHelpers.interopDefault(_react);
 var _styledComponents = require("styled-components");
 var _styledComponentsDefault = parcelHelpers.interopDefault(_styledComponents);
-function drawMoon(layer, stageWidth) {
+function drawMoon(layer, stageWidth, stageHeight) {
     const moon = new (0, _konvaDefault.default).Circle({
         x: stageWidth - 50,
-        y: 25,
-        radius: 25,
+        y: stageHeight * .15,
+        radius: stageWidth / 25,
         fill: "red"
     });
     layer.add(moon);
@@ -35694,7 +35694,7 @@ function createStage(container) {
         const layer = new (0, _konvaDefault.default).Layer();
         // drawGrid(layer, stage.width(), stage.height())
         drawMountain(layer, stage.width(), stage.height());
-        drawMoon(layer, stage.width());
+        drawMoon(layer, stage.width(), stage.height());
         stage.add(layer);
         layer.draw();
         return stage;
