@@ -2,11 +2,11 @@ import Konva from "konva"
 import React from "react"
 import styled from "styled-components"
 
-function drawMoon(layer: Konva.Layer, stageWidth: number): void {
+function drawMoon(layer: Konva.Layer, stageWidth: number, stageHeight: number): void {
   const moon = new Konva.Circle({
     x: stageWidth - 50,
-    y: 25,
-    radius: 25,
+    y: stageHeight * .15,
+    radius: stageWidth / 25,
     fill: "red",
   })
 
@@ -96,7 +96,7 @@ function createStage(
 
     // drawGrid(layer, stage.width(), stage.height())
     drawMountain(layer, stage.width(), stage.height())
-    drawMoon(layer, stage.width())
+    drawMoon(layer, stage.width(), stage.height())
 
     stage.add(layer)
     layer.draw()
