@@ -2,10 +2,14 @@ import Konva from "konva"
 import React from "react"
 import styled from "styled-components"
 
-function drawMoon(layer: Konva.Layer, stageWidth: number, stageHeight: number): void {
+function drawMoon(
+  layer: Konva.Layer,
+  stageWidth: number,
+  stageHeight: number
+): void {
   const moon = new Konva.Circle({
     x: stageWidth - 50,
-    y: stageHeight * .15,
+    y: stageHeight * 0.15,
     radius: stageWidth / 25,
     fill: "red",
   })
@@ -108,7 +112,13 @@ function createStage(
 }
 
 export default function MountainBiking({ className }: { className?: string }) {
-  return <Stage aria-label="Line drawing of a mountain with the moon behind it" ref={createStage} className={className}></Stage>
+  return (
+    <Stage
+      aria-label="Line drawing of a mountain with the moon behind it"
+      ref={createStage}
+      className={className}
+    ></Stage>
+  )
 }
 
 const Stage = styled.div``

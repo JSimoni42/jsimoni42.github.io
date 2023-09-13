@@ -8,19 +8,23 @@ import MountainBiking from "../MountainBiking"
 const finishTypingKey = "shouldFinishTyping"
 
 function useShouldFinishTyping() {
-  const localStorageFinishTyping = localStorage.getItem(finishTypingKey) === 'true'
+  const localStorageFinishTyping =
+    localStorage.getItem(finishTypingKey) === "true"
 
   const [finishTypingState, setFinishTypingState] = React.useState(false)
 
   function setFinishTyping(nextShouldFinishTyping: boolean) {
     if (nextShouldFinishTyping) {
-      localStorage.setItem(finishTypingKey, 'true')
+      localStorage.setItem(finishTypingKey, "true")
     }
 
     setFinishTypingState(nextShouldFinishTyping)
   }
 
-  return [ localStorageFinishTyping || finishTypingState, setFinishTyping ] as const
+  return [
+    localStorageFinishTyping || finishTypingState,
+    setFinishTyping,
+  ] as const
 }
 
 export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
@@ -34,7 +38,10 @@ export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
         <Header>{Index.headerName}</Header>
       </HeaderContainer>
       <ContentContainer>
-        <BioContainer onDoubleClick={() => setFinishTypingIntro(true)} aria-label="My personal summary">
+        <BioContainer
+          onDoubleClick={() => setFinishTypingIntro(true)}
+          aria-label="My personal summary"
+        >
           <CursorRowGroup
             contentItems={Index.intro}
             finishTyping={shouldFinishTyping}

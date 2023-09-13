@@ -25,15 +25,15 @@ const ErrorPage: FC = () => {
 }
 
 const Title = styled.h1`
-    text-align: center;
+  text-align: center;
 `
 
 const PageContainer = styled.main`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 `
 
 export default ErrorPage
