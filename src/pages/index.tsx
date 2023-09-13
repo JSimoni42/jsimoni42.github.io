@@ -1,4 +1,4 @@
-import React, { FC, useLayoutEffect } from "react"
+import React, { FC } from "react"
 
 import styled from "styled-components"
 import { PageWrapper } from "../components/page-wrapper"
@@ -10,6 +10,7 @@ import {
   MobileBreakpoint,
 } from "../constants/siteConstants"
 import { ResponsiveBreakpoint } from "../components/ResponsiveBreakpoint"
+import { Link } from "react-router-dom"
 
 const IndexPage: FC = () => {
   return (
@@ -29,7 +30,7 @@ const IndexPage: FC = () => {
             Write me an e-mail
           </a>
         </div>
-        <a href="/credits">Give credit where credit is due</a>
+        <Link to="/credits">Give credit where credit is due</Link>
       </Footer>
     </>
   )

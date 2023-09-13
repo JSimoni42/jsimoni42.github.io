@@ -12,16 +12,14 @@ if (!rootElement) throw new Error("Root element not found")
 
 const router = createBrowserRouter([
   {
+    path: "/credits",
+    element: <CreditsPage />,
+  },
+  {
     path: "/",
     element: <IndexPage />,
     errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "credits",
-        element: <CreditsPage />
-      }
-    ]
-  }
+  },
 ])
 
 const root = createRoot(rootElement)
