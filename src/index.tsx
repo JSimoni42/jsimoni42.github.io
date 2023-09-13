@@ -15,11 +15,13 @@ const router = createBrowserRouter([
     path: "/",
     element: <IndexPage />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: "/credits",
-    element: <CreditsPage />,
-  },
+    children: [
+      {
+        path: "credits",
+        element: <CreditsPage />
+      }
+    ]
+  }
 ])
 
 const root = createRoot(rootElement)
