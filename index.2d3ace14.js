@@ -2940,24 +2940,24 @@ const rootElement = document.getElementById("root");
 if (!rootElement) throw new Error("Root element not found");
 const router = (0, _reactRouterDom.createBrowserRouter)([
     {
+        path: "/credits",
+        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _creditsDefault.default), {}, void 0, false, {
+            fileName: "src/index.tsx",
+            lineNumber: 16,
+            columnNumber: 14
+        }, undefined)
+    },
+    {
         path: "/",
         element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _indexDefault.default), {}, void 0, false, {
             fileName: "src/index.tsx",
-            lineNumber: 16,
+            lineNumber: 20,
             columnNumber: 14
         }, undefined),
         errorElement: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _errorDefault.default), {}, void 0, false, {
             fileName: "src/index.tsx",
-            lineNumber: 17,
-            columnNumber: 19
-        }, undefined)
-    },
-    {
-        path: "/credits",
-        element: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _creditsDefault.default), {}, void 0, false, {
-            fileName: "src/index.tsx",
             lineNumber: 21,
-            columnNumber: 14
+            columnNumber: 19
         }, undefined)
     }
 ]);
@@ -32435,6 +32435,7 @@ var _desktop = require("../components/index/Desktop");
 var _mobile = require("../components/index/Mobile");
 var _siteConstants = require("../constants/siteConstants");
 var _responsiveBreakpoint = require("../components/ResponsiveBreakpoint");
+var _reactRouterDom = require("react-router-dom");
 const IndexPage = ()=>{
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _jsxDevRuntime.Fragment), {
         children: [
@@ -32446,17 +32447,17 @@ const IndexPage = ()=>{
                         breakpoint: parseInt((0, _siteConstants.MobileBreakpoint))
                     }, void 0, false, {
                         fileName: "src/pages/index.tsx",
-                        lineNumber: 19,
+                        lineNumber: 20,
                         columnNumber: 11
                     }, undefined)
                 }, void 0, false, {
                     fileName: "src/pages/index.tsx",
-                    lineNumber: 18,
+                    lineNumber: 19,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/pages/index.tsx",
-                lineNumber: 17,
+                lineNumber: 18,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(Footer, {
@@ -32468,26 +32469,26 @@ const IndexPage = ()=>{
                             children: "Write me an e-mail"
                         }, void 0, false, {
                             fileName: "src/pages/index.tsx",
-                            lineNumber: 28,
+                            lineNumber: 29,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/pages/index.tsx",
-                        lineNumber: 27,
+                        lineNumber: 28,
                         columnNumber: 9
                     }, undefined),
-                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("a", {
-                        href: "/credits",
+                    /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Link), {
+                        to: "/credits",
                         children: "Give credit where credit is due"
                     }, void 0, false, {
                         fileName: "src/pages/index.tsx",
-                        lineNumber: 32,
+                        lineNumber: 33,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/index.tsx",
-                lineNumber: 26,
+                lineNumber: 27,
                 columnNumber: 7
             }, undefined)
         ]
@@ -32518,7 +32519,7 @@ $RefreshReg$(_c2, "TerminalScreenFrame");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","styled-components":"1U3k6","../components/page-wrapper":"kILm3","../components/index/Desktop":"jm4ar","../components/index/Mobile":"8aTxu","../constants/siteConstants":"b4u7g","../components/ResponsiveBreakpoint":"g7B49","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"1U3k6":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","styled-components":"1U3k6","../components/page-wrapper":"kILm3","../components/index/Desktop":"jm4ar","../components/index/Mobile":"8aTxu","../constants/siteConstants":"b4u7g","../components/ResponsiveBreakpoint":"g7B49","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","react-router-dom":"9xmpe"}],"1U3k6":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "ServerStyleSheet", ()=>Je);
@@ -35227,12 +35228,12 @@ const DesktopIndex = ({ className  })=>{
                     children: (0, _siteConstants.Index).headerName
                 }, void 0, false, {
                     fileName: "src/components/index/Desktop.tsx",
-                    lineNumber: 34,
+                    lineNumber: 38,
                     columnNumber: 9
                 }, undefined)
             }, void 0, false, {
                 fileName: "src/components/index/Desktop.tsx",
-                lineNumber: 33,
+                lineNumber: 37,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ContentContainer, {
@@ -35245,41 +35246,41 @@ const DesktopIndex = ({ className  })=>{
                             finishTyping: shouldFinishTyping
                         }, void 0, false, {
                             fileName: "src/components/index/Desktop.tsx",
-                            lineNumber: 38,
+                            lineNumber: 45,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/index/Desktop.tsx",
-                        lineNumber: 37,
+                        lineNumber: 41,
                         columnNumber: 9
                     }, undefined),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ComputerContainer, {
                         children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _asciiComputer.AsciiComputer), {
                             children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)(ComputerContent, {}, void 0, false, {
                                 fileName: "src/components/index/Desktop.tsx",
-                                lineNumber: 45,
+                                lineNumber: 52,
                                 columnNumber: 13
                             }, undefined)
                         }, void 0, false, {
                             fileName: "src/components/index/Desktop.tsx",
-                            lineNumber: 44,
+                            lineNumber: 51,
                             columnNumber: 11
                         }, undefined)
                     }, void 0, false, {
                         fileName: "src/components/index/Desktop.tsx",
-                        lineNumber: 43,
+                        lineNumber: 50,
                         columnNumber: 9
                     }, undefined)
                 ]
             }, void 0, true, {
                 fileName: "src/components/index/Desktop.tsx",
-                lineNumber: 36,
+                lineNumber: 40,
                 columnNumber: 7
             }, undefined)
         ]
     }, void 0, true, {
         fileName: "src/components/index/Desktop.tsx",
-        lineNumber: 32,
+        lineNumber: 36,
         columnNumber: 5
     }, undefined);
 };
@@ -35638,7 +35639,7 @@ var _styledComponentsDefault = parcelHelpers.interopDefault(_styledComponents);
 function drawMoon(layer, stageWidth, stageHeight) {
     const moon = new (0, _konvaDefault.default).Circle({
         x: stageWidth - 50,
-        y: stageHeight * .15,
+        y: stageHeight * 0.15,
         radius: stageWidth / 25,
         fill: "red"
     });
@@ -35728,8 +35729,8 @@ function MountainBiking({ className  }) {
         className: className
     }, void 0, false, {
         fileName: "src/components/MountainBiking.tsx",
-        lineNumber: 111,
-        columnNumber: 10
+        lineNumber: 116,
+        columnNumber: 5
     }, this);
 }
 exports.default = MountainBiking;
@@ -46486,15 +46487,15 @@ _s(ErrorPage, "oAgjgbJzsRXlB89+MoVumxMQqKM=", false, function() {
 });
 _c = ErrorPage;
 const Title = (0, _styledComponentsDefault.default).h1`
-    text-align: center;
+  text-align: center;
 `;
 _c1 = Title;
 const PageContainer = (0, _styledComponentsDefault.default).main`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
 `;
 _c2 = PageContainer;
 exports.default = ErrorPage;
