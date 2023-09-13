@@ -5,10 +5,28 @@ import { AsciiComputer } from "../AsciiComputer"
 import { CursorRowGroup } from "../CursorRowGroup"
 import MountainBiking from "../MountainBiking"
 
+const finishTypingKey = "shouldFinishTyping"
+
+function useShouldFinishTyping() {
+  const localStorageFinishTyping = localStorage.getItem(finishTypingKey) === 'true'
+
+  const [finishTypingState, setFinishTypingState] = React.useState(false)
+
+  function setFinishTyping(nextShouldFinishTyping: boolean) {
+    if (nextShouldFinishTyping) {
+      localStorage.setItem(finishTypingKey, 'true')
+    }
+
+    setFinishTypingState(nextShouldFinishTyping)
+  }
+
+  return [ localStorageFinishTyping || finishTypingState, setFinishTyping ] as const
+}
+
 export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
   className,
 }) => {
-  const [finishTypingIntro, setFinishTypingIntro] = React.useState(false)
+  const [shouldFinishTyping, setFinishTypingIntro] = useShouldFinishTyping()
 
   return (
     <DesktopContent className={className ?? ""}>
@@ -19,7 +37,7 @@ export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
         <BioContainer onDoubleClick={() => setFinishTypingIntro(true)} aria-label="My personal summary">
           <CursorRowGroup
             contentItems={Index.intro}
-            finishTyping={finishTypingIntro}
+            finishTyping={shouldFinishTyping}
           />
         </BioContainer>
         <ComputerContainer>
