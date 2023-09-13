@@ -16,7 +16,7 @@ export const DesktopIndex: FC<HTMLAttributes<HTMLDivElement>> = ({
         <Header>{Index.headerName}</Header>
       </HeaderContainer>
       <ContentContainer>
-        <BioContainer onDoubleClick={() => setFinishTypingIntro(true)}>
+        <BioContainer onDoubleClick={() => setFinishTypingIntro(true)} aria-label="My personal summary">
           <CursorRowGroup
             contentItems={Index.intro}
             finishTyping={finishTypingIntro}

@@ -108,7 +108,7 @@ function createStage(
 }
 
 export default function MountainBiking({ className }: { className?: string }) {
-  return <Stage ref={createStage} className={className}></Stage>
+  return <Stage aria-label="Line drawing of a mountain with the moon behind it" ref={createStage} className={className}></Stage>
 }
 
 const Stage = styled.div``
