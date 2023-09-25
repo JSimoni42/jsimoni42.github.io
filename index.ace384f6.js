@@ -107,6 +107,8 @@ var c,h;
   pre {
     font-size: 0.5vw;
 
+    font-family: 'Courier';
+
     @media (max-width: ${Ir}) {
       font-size: 1vh;
     }
@@ -239,4 +241,4 @@ var c,h;
   justify-content: center;
   height: 100vh;
 `;var Os=()=>{const e=dt();return(0,o.jsx)(Fr,{children:(0,o.jsxs)(Ds,{children:[(0,o.jsx)(Ls,{children:"Whoops, that's not quite right"}),(0,o.jsx)("p",{children:(0,o.jsx)("i",{children:e.statusText||e.message})}),(0,o.jsx)("a",{href:"/",children:"Return Home"})]})})};const Is=document.getElementById("root");if(!Is)throw new Error("Root element not found");const Ns=(zs=[{path:"/credits",element:(0,o.jsx)(Ms,{})},{path:"/",element:(0,o.jsx)(As,{}),errorElement:(0,o.jsx)(Os,{})}],ce({basename:null==Fs?void 0:Fs.basename,future:yt({},null==Fs?void 0:Fs.future,{v7_prependBasename:!0}),history:p({window:null==Fs?void 0:Fs.window}),hydrationData:(null==Fs?void 0:Fs.hydrationData)||xt(),routes:zs,mapRouteProperties:vt}).initialize());var zs,Fs;s(Is).render((0,o.jsx)(t(u).StrictMode,{children:(0,o.jsx)((function(e){let{fallbackElement:t,router:n}=e,[r,a]=u.useState(n.state);u.useLayoutEffect((()=>n.subscribe(a)),[n,a]);let i=u.useMemo((()=>({createHref:n.createHref,encodeLocation:n.encodeLocation,go:e=>n.navigate(e),push:(e,t,r)=>n.navigate(e,{state:t,preventScrollReset:null==r?void 0:r.preventScrollReset}),replace:(e,t,r)=>n.navigate(e,{replace:!0,state:t,preventScrollReset:null==r?void 0:r.preventScrollReset})})),[n]),o=n.basename||"/",s=u.useMemo((()=>({router:n,navigator:i,static:!1,basename:o})),[n,i,o]);return u.createElement(u.Fragment,null,u.createElement(Be.Provider,{value:s},u.createElement(Ue.Provider,{value:r},u.createElement(pt,{basename:n.basename,location:n.state.location,navigationType:n.state.historyAction,navigator:i},n.state.initialized?u.createElement(ft,{routes:n.routes,state:r}):t))),null)}),{router:Ns})}));
-//# sourceMappingURL=index.75042dc1.js.map
+//# sourceMappingURL=index.ace384f6.js.map
