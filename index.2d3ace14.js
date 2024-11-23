@@ -35027,7 +35027,7 @@ const GlobalStyle = (0, _styledComponents.createGlobalStyle)`
   pre {
     font-size: 0.5vw;
 
-    font-family: 'Courier';
+    font-family: 'Courier Prime', monospace;
 
     @media (max-width: ${(0, _siteConstants.MobileBreakpoint)}) {
       font-size: 1vh;
