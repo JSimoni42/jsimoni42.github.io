@@ -31,7 +31,7 @@ const GlobalStyle = createGlobalStyle`
   pre {
     font-size: 0.5vw;
 
-    font-family: 'Courier';
+    font-family: 'Courier Prime', monospace;
 
     @media (max-width: ${MobileBreakpoint}) {
       font-size: 1vh;
