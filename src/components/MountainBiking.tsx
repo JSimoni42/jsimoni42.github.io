@@ -148,6 +148,7 @@ function getTerrainAt(
 const CYCLIST_ENTRY_DELAY_MS = 15 * 1000
 const CYCLIST_CYCLE_DURATION_MS = 5 * 60 * 1000
 const CYCLIST_RIDE_DURATION_MS = 60 * 1000
+const CYCLIST_ROTATION_SMOOTHING_MS = 150
 
 function animateCyclist(
   layer: Konva.Layer,
@@ -155,23 +156,38 @@ function animateCyclist(
   mountainPoints: number[],
   stageWidth: number
 ): Konva.Animation {
+  let smoothedAngleDeg = 0
+  let wasRiding = false
+
   const anim = new Konva.Animation(frame => {
     if (!frame) return
 
     const cyclePosition = frame.time % CYCLIST_CYCLE_DURATION_MS
     const ridePosition = cyclePosition - CYCLIST_ENTRY_DELAY_MS
+    const isRiding =
+      ridePosition >= 0 && ridePosition <= CYCLIST_RIDE_DURATION_MS
 
-    if (ridePosition < 0 || ridePosition > CYCLIST_RIDE_DURATION_MS) {
+    if (!isRiding) {
       cyclist.visible(false)
+      wasRiding = false
       return
     }
 
     const x = (ridePosition / CYCLIST_RIDE_DURATION_MS) * stageWidth
     const { y, angleDeg } = getTerrainAt(mountainPoints, x)
 
+    if (wasRiding) {
+      const smoothing =
+        1 - Math.exp(-frame.timeDiff / CYCLIST_ROTATION_SMOOTHING_MS)
+      smoothedAngleDeg += (angleDeg - smoothedAngleDeg) * smoothing
+    } else {
+      smoothedAngleDeg = angleDeg
+    }
+
     cyclist.visible(true)
     cyclist.position({ x, y })
-    cyclist.rotation(angleDeg)
+    cyclist.rotation(smoothedAngleDeg)
+    wasRiding = true
   }, layer)
 
   anim.start()
