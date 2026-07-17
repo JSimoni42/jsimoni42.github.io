@@ -21,7 +21,7 @@ function drawMountain(
   layer: Konva.Layer,
   stageWidth: number,
   ground: number
-): void {
+): number[] {
   const elevations = [
     ground,
     ground - 20,
@@ -56,6 +56,120 @@ function drawMountain(
   })
 
   layer.add(mountain)
+
+  return points
+}
+
+function createCyclist(size: number): Konva.Group {
+  const wheelRadius = size
+  const rearWheelX = -size * 1.5
+  const frontWheelX = size * 1.5
+  const wheelY = -wheelRadius
+  const seatX = -size * 0.3
+  const seatY = wheelY - size * 1.8
+  const handlebarX = frontWheelX - size * 0.3
+  const handlebarY = wheelY - size * 1.6
+  const headRadius = size * 0.6
+  const headY = seatY - size * 1.6
+
+  const rearWheel = new Konva.Circle({
+    x: rearWheelX,
+    y: wheelY,
+    radius: wheelRadius,
+    stroke: "white",
+    strokeWidth: 1,
+  })
+
+  const frontWheel = new Konva.Circle({
+    x: frontWheelX,
+    y: wheelY,
+    radius: wheelRadius,
+    stroke: "white",
+    strokeWidth: 1,
+  })
+
+  const frame = new Konva.Line({
+    points: [
+      rearWheelX,
+      wheelY,
+      seatX,
+      seatY,
+      frontWheelX,
+      wheelY,
+      handlebarX,
+      handlebarY,
+      seatX,
+      seatY,
+    ],
+    stroke: "white",
+    strokeWidth: 1,
+  })
+
+  const head = new Konva.Circle({
+    x: seatX,
+    y: headY,
+    radius: headRadius,
+    stroke: "white",
+    strokeWidth: 1,
+  })
+
+  const body = new Konva.Line({
+    points: [seatX, seatY, seatX, headY + headRadius],
+    stroke: "white",
+    strokeWidth: 1,
+  })
+
+  const group = new Konva.Group()
+  group.add(rearWheel, frontWheel, frame, head, body)
+
+  return group
+}
+
+function getMountainY(points: number[], x: number): number {
+  for (let i = 0; i < points.length - 2; i += 2) {
+    const x0 = points[i]
+    const x1 = points[i + 2]
+
+    if (x >= x0 && x <= x1) {
+      const y0 = points[i + 1]
+      const y1 = points[i + 3]
+      const t = (x - x0) / (x1 - x0)
+      return y0 + t * (y1 - y0)
+    }
+  }
+
+  return points[points.length - 1]
+}
+
+const CYCLIST_CYCLE_DURATION_MS = 5 * 60 * 1000
+const CYCLIST_RIDE_DURATION_MS = 60 * 1000
+
+function animateCyclist(
+  layer: Konva.Layer,
+  cyclist: Konva.Group,
+  mountainPoints: number[],
+  stageWidth: number
+): Konva.Animation {
+  const anim = new Konva.Animation(frame => {
+    if (!frame) return
+
+    const cyclePosition = frame.time % CYCLIST_CYCLE_DURATION_MS
+
+    if (cyclePosition > CYCLIST_RIDE_DURATION_MS) {
+      cyclist.visible(false)
+      return
+    }
+
+    const x = (cyclePosition / CYCLIST_RIDE_DURATION_MS) * stageWidth
+    const y = getMountainY(mountainPoints, x)
+
+    cyclist.visible(true)
+    cyclist.position({ x, y })
+  }, layer)
+
+  anim.start()
+
+  return anim
 }
 
 function drawGrid(
@@ -99,8 +213,12 @@ function createStage(
     const layer = new Konva.Layer()
 
     // drawGrid(layer, stage.width(), stage.height())
-    drawMountain(layer, stage.width(), stage.height())
+    const mountainPoints = drawMountain(layer, stage.width(), stage.height())
     drawMoon(layer, stage.width(), stage.height())
+
+    const cyclist = createCyclist(stage.width() / 80)
+    layer.add(cyclist)
+    animateCyclist(layer, cyclist, mountainPoints, stage.width())
 
     stage.add(layer)
     layer.draw()
