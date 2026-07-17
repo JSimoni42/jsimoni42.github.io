@@ -6,9 +6,7 @@
   "author": "John Simoni <jsimoni03@gmail.com",
   "source": "src/index.html",
   "dependencies": {
-    "canvas": "^2.11.2",
     "konva": "^8.3.9",
-    "npm": "^8.12.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.11.1",

@@ -19,9 +19,9 @@ There is no test suite and no lint script configured in this repo.
 
 ### Node version
 
-Use Node 20 (`.nvmrc` pins `20.20.2`, via `nvm use`). The `canvas` dependency is a native
-addon (node-gyp) that fails to compile on newer Node/V8 versions (e.g. Node 26); Node 20 has
-prebuilt binaries available.
+Use the version pinned in `.nvmrc` (currently 24.18.0, latest LTS), via `nvm use`. The
+`canvas` package used to be a dependency here but was removed — it was unused in `src/` and
+its native addon failed to compile against current Node/V8 versions.
 
 ## Architecture
 
