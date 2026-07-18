@@ -20,8 +20,17 @@ There is no test suite and no lint script configured in this repo.
 ### Branches
 
 `site-dev` is the branch containing the site's source code — base branches and PRs off `site-dev`,
-not `master`. `master` holds only the built `dist/` output published by `npm run deploy` (via
-`gh-pages`); it has no source files and should never be a PR target.
+not `master`. `master` holds the built `dist/` output published by `npm run deploy` (via
+`gh-pages`) and should never be a PR target for source changes.
+
+**Exception**: `master` also hosts `.github/workflows/deploy.yml`, a manually-triggered
+(`workflow_dispatch`) GitHub Actions alternative to `npm run deploy` that builds `site-dev` and
+pushes `dist/` to `master` from CI. This file intentionally lives only on `master` (it was
+deliberately removed from `site-dev` — see git history), so it's the one legitimate case where a
+PR should target `master` directly. Its publish step wipes the `master` worktree before copying
+in `dist/` — that wipe must always exclude `.github` (e.g. via the `':!.github'` pathspec
+already in the file), or the workflow deletes its own definition on every run, as happened once
+already (see commit `a075547`). Don't "simplify" that exclusion away.
 
 ### Résumé content fetch
 
