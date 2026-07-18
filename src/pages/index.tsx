@@ -10,7 +10,6 @@ import {
   MobileBreakpoint,
 } from "../constants/siteConstants"
 import { ResponsiveBreakpoint } from "../components/ResponsiveBreakpoint"
-import { Link } from "react-router-dom"
 
 const IndexPage: FC = () => {
   return (
@@ -30,7 +29,6 @@ const IndexPage: FC = () => {
             Write me an e-mail
           </a>
         </div>
-        <Link to="/credits">Give credit where credit is due</Link>
       </Footer>
     </>
   )

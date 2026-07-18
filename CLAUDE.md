@@ -26,9 +26,9 @@ its native addon failed to compile against current Node/V8 versions.
 ## Architecture
 
 **Routing & entry**: `src/index.tsx` creates the root and a `react-router-dom` browser router
-with three routes: `/` (`pages/index.tsx`), `/credits` (`pages/credits.tsx`), and an
-`errorElement` (`pages/error.tsx`) for `/`. `src/index.html` is the Parcel entry HTML; it also
-loads Google Fonts (Roboto Mono / Courier Prime) referenced by global styles.
+with one route, `/` (`pages/index.tsx`), and an `errorElement` (`pages/error.tsx`) for it.
+`src/index.html` is the Parcel entry HTML; it also loads Google Fonts (Roboto Mono / Courier
+Prime) referenced by global styles.
 
 **Global styling**: `components/page-wrapper.tsx` injects a `styled-components` global style
 (black background, monospace fonts, `<pre>` font-size that shrinks on mobile) and should wrap
@@ -46,8 +46,7 @@ shows an ASCII record player that plays background audio).
 live as template-literal strings in `constants/siteConstants.ts` (`Index`, `Computer`,
 `RecordPlayer`) and are rendered verbatim inside `<pre>` tags by the corresponding components
 (`AsciiComputer.tsx`, `RecordPlayer.tsx`). When editing these strings, preserve exact spacing —
-it's the art. Sources for the borrowed ASCII art are credited on `/credits` via the `credits`
-fields on `Computer` and `RecordPlayer`.
+it's the art. Sources for the borrowed ASCII art are credited in `CREDITS.md` at the repo root.
 
 **Typewriter effect**: `CursorRow.tsx` types out a single string on an interval and reports
 completion via `onComplete`; `CursorRowGroup.tsx` sequences an array of strings through
