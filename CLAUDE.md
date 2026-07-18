@@ -17,6 +17,23 @@ terminal/ASCII-art aesthetic, deployed to GitHub Pages.
 
 There is no test suite and no lint script configured in this repo.
 
+### Branches
+
+`site-dev` is the branch containing the site's source code — base branches and PRs off `site-dev`,
+not `master`. `master` holds only the built `dist/` output published by `npm run deploy` (via
+`gh-pages`); it has no source files and should never be a PR target.
+
+### Résumé content fetch
+
+`scripts/fetch-resume.js` runs as a `prebuild`/`prestart`/`pretypecheck` npm lifecycle hook. It
+fetches the rendered résumé HTML from the `JSimoni42/resume` repo's latest GitHub release
+(`.../resume/releases/latest/download/resume.html`, auto-published by that repo's CI on every
+push to its `main`), extracts the `#content` fragment, and writes it to the gitignored
+`src/generated/resume.ts` (consumed by `pages/resume.tsx`). If the fetch fails and a previously
+generated file already exists, it's left in place with a warning instead of failing the build —
+but a completely fresh checkout with no network access will fail to build/typecheck until the
+fetch succeeds at least once.
+
 ### Node version
 
 Use the version pinned in `.nvmrc` (currently 24.18.0, latest LTS), via `nvm use`. The
@@ -26,9 +43,9 @@ its native addon failed to compile against current Node/V8 versions.
 ## Architecture
 
 **Routing & entry**: `src/index.tsx` creates the root and a `react-router-dom` browser router
-with one route, `/` (`pages/index.tsx`), and an `errorElement` (`pages/error.tsx`) for it.
-`src/index.html` is the Parcel entry HTML; it also loads Google Fonts (Roboto Mono / Courier
-Prime) referenced by global styles.
+with two routes: `/` (`pages/index.tsx`), with an `errorElement` (`pages/error.tsx`), and
+`/resume` (`pages/resume.tsx`). `src/index.html` is the Parcel entry HTML; it also loads Google
+Fonts (Roboto Mono / Courier Prime) referenced by global styles.
 
 **Global styling**: `components/page-wrapper.tsx` injects a `styled-components` global style
 (black background, monospace fonts, `<pre>` font-size that shrinks on mobile) and should wrap
@@ -61,6 +78,13 @@ imperative `Stage`/`Layer` built once on mount.
 **Media rotation**: `AutoplayVideos.tsx` and the mobile page's audio player both cycle through
 a fixed list of URLs (`VideoURLs`, `AudioUrls` in `siteConstants.ts`), advancing to the next
 index on the media element's `ended` event.
+
+**Résumé page**: `pages/resume.tsx` doesn't hardcode résumé content — it renders the
+build-time-fetched HTML fragment (see "Résumé content fetch" above) via
+`dangerouslySetInnerHTML`, then re-skins the fetched markup's stable ids/classes
+(`#content`, `#personal-section`, `#experience-section`, `.job-header`) with styled-components
+CSS matching this site's theme. The `JSimoni42/resume` repo remains the single source of truth
+for the content; don't copy résumé text into this repo.
 
 ## Known dead code
 
