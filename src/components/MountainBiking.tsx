@@ -125,7 +125,10 @@ function createCyclist(size: number): Konva.Group {
   return group
 }
 
-function getMountainY(points: number[], x: number): number {
+function getTerrainAt(
+  points: number[],
+  x: number
+): { y: number; angleDeg: number } {
   for (let i = 0; i < points.length - 2; i += 2) {
     const x0 = points[i]
     const x1 = points[i + 2]
@@ -134,15 +137,18 @@ function getMountainY(points: number[], x: number): number {
       const y0 = points[i + 1]
       const y1 = points[i + 3]
       const t = (x - x0) / (x1 - x0)
-      return y0 + t * (y1 - y0)
+      const angleDeg = (Math.atan2(y1 - y0, x1 - x0) * 180) / Math.PI
+      return { y: y0 + t * (y1 - y0), angleDeg }
     }
   }
 
-  return points[points.length - 1]
+  return { y: points[points.length - 1], angleDeg: 0 }
 }
 
+const CYCLIST_ENTRY_DELAY_MS = 15 * 1000
 const CYCLIST_CYCLE_DURATION_MS = 5 * 60 * 1000
 const CYCLIST_RIDE_DURATION_MS = 60 * 1000
+const CYCLIST_ROTATION_SMOOTHING_MS = 150
 
 function animateCyclist(
   layer: Konva.Layer,
@@ -150,21 +156,38 @@ function animateCyclist(
   mountainPoints: number[],
   stageWidth: number
 ): Konva.Animation {
+  let smoothedAngleDeg = 0
+  let wasRiding = false
+
   const anim = new Konva.Animation(frame => {
     if (!frame) return
 
     const cyclePosition = frame.time % CYCLIST_CYCLE_DURATION_MS
+    const ridePosition = cyclePosition - CYCLIST_ENTRY_DELAY_MS
+    const isRiding =
+      ridePosition >= 0 && ridePosition <= CYCLIST_RIDE_DURATION_MS
 
-    if (cyclePosition > CYCLIST_RIDE_DURATION_MS) {
+    if (!isRiding) {
       cyclist.visible(false)
+      wasRiding = false
       return
     }
 
-    const x = (cyclePosition / CYCLIST_RIDE_DURATION_MS) * stageWidth
-    const y = getMountainY(mountainPoints, x)
+    const x = (ridePosition / CYCLIST_RIDE_DURATION_MS) * stageWidth
+    const { y, angleDeg } = getTerrainAt(mountainPoints, x)
+
+    if (wasRiding) {
+      const smoothing =
+        1 - Math.exp(-frame.timeDiff / CYCLIST_ROTATION_SMOOTHING_MS)
+      smoothedAngleDeg += (angleDeg - smoothedAngleDeg) * smoothing
+    } else {
+      smoothedAngleDeg = angleDeg
+    }
 
     cyclist.visible(true)
     cyclist.position({ x, y })
+    cyclist.rotation(smoothedAngleDeg)
+    wasRiding = true
   }, layer)
 
   anim.start()
