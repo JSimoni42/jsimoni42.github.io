@@ -25,21 +25,13 @@ const IndexPage: FC = () => {
         </TerminalScreenFrame>
       </PageWrapper>
       <Footer>
-        <FooterLink
-          target="_blank"
-          href={EMAILME}
-          title="Write me an e-mail"
-          aria-label="Write me an e-mail"
-        >
+        <FooterLink target="_blank" href={EMAILME} aria-label="Email">
           <EmailIcon />
+          <Tooltip>Email</Tooltip>
         </FooterLink>
-        <FooterLink
-          as={Link}
-          to="/resume"
-          title="View my résumé"
-          aria-label="View my résumé"
-        >
+        <FooterLink as={Link} to="/resume" aria-label="Resume">
           <ResumeIcon />
+          <Tooltip>Resume</Tooltip>
         </FooterLink>
       </Footer>
     </>
@@ -81,6 +73,42 @@ const Footer = styled.footer`
 
 const FooterLink = styled.a`
   display: flex;
+  position: relative;
+
+  &:hover span,
+  &:focus-visible span {
+    opacity: 1;
+    visibility: visible;
+  }
+`
+
+const Tooltip = styled.span`
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 10px;
+  padding: 2px 8px;
+  white-space: nowrap;
+  background: black;
+  color: white;
+  border: 1px solid white;
+  font-family: "Roboto Mono", monospace;
+  font-size: 0.8rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: white;
+  }
 `
 
 const TerminalScreenFrame = styled.div``
