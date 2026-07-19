@@ -25,13 +25,21 @@ const IndexPage: FC = () => {
         </TerminalScreenFrame>
       </PageWrapper>
       <Footer>
-        <FooterLink target="_blank" href={EMAILME}>
+        <FooterLink
+          target="_blank"
+          href={EMAILME}
+          title="Write me an e-mail"
+          aria-label="Write me an e-mail"
+        >
           <EmailIcon />
-          Write me an e-mail
         </FooterLink>
-        <FooterLink as={Link} to="/resume">
+        <FooterLink
+          as={Link}
+          to="/resume"
+          title="View my résumé"
+          aria-label="View my résumé"
+        >
           <ResumeIcon />
-          View my résumé
         </FooterLink>
       </Footer>
     </>
@@ -73,10 +81,6 @@ const Footer = styled.footer`
 
 const FooterLink = styled.a`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 6px;
-  text-align: center;
 `
 
 const TerminalScreenFrame = styled.div``
