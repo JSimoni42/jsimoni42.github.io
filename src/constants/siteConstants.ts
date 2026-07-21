@@ -1,6 +1,7 @@
 export const Index = {
   intro: [
-    `Hello! My name is John and I'm a full-stack web tinkerer who is fascinated by the web's ability to be performative, archival, and accessible.`,
+    `Hello! My name is John and I'm a software tinkerer who's spent years at the boundary between old and new — most recently teaching the century-old phone call to work with modern software and voice agents.`,
+    `I'm fascinated by what happens when familiar technology, along with all the trust and habit built into it, meets a new way of doing things.`,
     `If I'm not coding, you'll probably find me exploring the outdoors on my bike or trying a new recipe.`,
   ],
 
